@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 django = "==2.2.13"
 djangorestframework = "==3.12.2"
+hashids = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.7"

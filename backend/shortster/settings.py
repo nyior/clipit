@@ -25,8 +25,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
 
     #third party packages
-    'rest_framework'
+    'rest_framework',
+
+    #developer apps
+    'main'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -35,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
+
 
 #where django goes to find routing info
 ROOT_URLCONF = 'shortster.urls'
@@ -49,6 +54,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 LANGUAGE_CODE = 'en-us'
 
