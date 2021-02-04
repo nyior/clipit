@@ -116,9 +116,7 @@ class TestUrlStatsView(SetUpClass):
 
         resp = self.client.get(route)
 
-        response_data = resp.data
-
-        self.assertContains(response_data, "dateCreated")
-        self.assertContains(response_data, "lastAccessed")
-        self.assertContains(response_data, "hits")       
+        self.assertContains(resp, "dateCreated")
+        self.assertContains(resp, "lastAccessed")
+        self.assertContains(resp, "hits")       
 

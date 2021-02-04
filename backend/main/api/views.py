@@ -8,6 +8,8 @@ from main.api.utils import (
                             generate_shortcode)
 from main.models import Url
 
+import time
+
 @api_view(['POST'])
 def shorten_url(request):
     """
@@ -72,3 +74,27 @@ def redirect_view(request, shortcode):
     obj = get_object_or_404(model, shortcode=shortcode)
     obj.visited()
     return redirect(obj)
+
+
+@api_view(['GET'])
+def get_url_stats(request, shortcode):
+    """
+        gets the stats for the specified shortcode
+    """
+    
+    model = Url
+    obj = get_object_or_404(model, shortcode=shortcode)
+    visited = obj.last_accessed
+
+    #converts datetime to human readable form: 04-Feb-2021 at 21:26
+    date_created = obj.created_at.strftime("%d-%b-%Y at %H:%M")
+    visited.strftime("%d-%b-%Y at %H:%M") if visited is not None else visited
+    hits = obj.hits
+
+    return Response(
+                        {
+                            "dateCreated": date_created,
+                            "lastAccessed": visited,
+                            "hits": hits
+                        }
+                        )
