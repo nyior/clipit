@@ -78,16 +78,23 @@ class ShortenUrlView(SetUpClass):
 
 class TestRedirectView(SetUpClass):
     """this class tests the redirect view function"""
-    global route
-    route = reverse("redirect")
 
     def test_view_returns_302(self):
-        resp = self.client.get(route, shortcode=self.url.shortcode)
+        shortcode = self.url.shortcode
+        route = reverse("redirect", args=[shortcode])
+
+        resp = self.client.get(route)
 
         self.assertEqual(resp.status_code, 302)
 
     def test_view_redirects_to_original_url(self):
-        resp = self.client.get(route, shortcode=self.url.shortcode)
+        shortcode = self.url.shortcode
+        route = reverse("redirect", args=[shortcode])
 
-        self.assertEqual(resp.header["Location"], self.url.long_url)       
+        resp = self.client.get(route)
+
+        self.assertRedirects(
+                                resp, 
+                                self.url.long_url, 
+                                fetch_redirect_response=False)       
 

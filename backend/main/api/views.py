@@ -1,9 +1,12 @@
 from rest_framework.decorators import api_view
-from main.models import Url
 from rest_framework.response import Response
+
+from django.shortcuts import get_object_or_404, redirect
+
 from main.api.utils import (
                             shortcode_is_valid, 
                             generate_shortcode)
+from main.models import Url
 
 @api_view(['POST'])
 def shorten_url(request):
@@ -58,3 +61,13 @@ def shorten_url(request):
                                 "shortcode": url.shortcode
                             }
                             )
+
+
+
+def redirect_view(request, shortcode):
+    """
+        Redirect to original url given shortcode.
+    """
+    model = Url
+    obj = get_object_or_404(model, shortcode=shortcode)
+    return redirect(obj)
