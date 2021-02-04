@@ -43,7 +43,7 @@ def shorten_url(request):
         
         return Response(
                             {
-                                "shortcodeNotUnique": True
+                                "shortcodeInvalid": True
                             }
                             )
     except KeyError:
@@ -55,7 +55,6 @@ def shorten_url(request):
         return Response(
                             {
                                 "longUrl": long_url,
-                                "shortcode": url.shortcode,
-                                "shortcodeNotUnique": False
+                                "shortcode": url.shortcode
                             }
                             )
