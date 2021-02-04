@@ -2,6 +2,12 @@ import datetime
 from django.db import models
 
 
+class Client(models.Model):
+    """this models the client object(browser) that 
+    shortens a url"""
+    pass
+
+
 class Url(models.Model):
     long_url = models.URLField(max_length=500)
     shortcode = models.CharField(max_length=30, unique=True)
