@@ -53,3 +53,7 @@ class UrlModelTest(TestCase):
         new_hits = url.hits
         
         self.assertTrue((new_hits-hits) == 1)
+
+    def test_get_absolute_url(self):
+        # This will also fail if long_url isn't returned.
+        self.assertEqual(url.get_absolute_url(), url.long_url)
