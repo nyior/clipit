@@ -70,4 +70,5 @@ def redirect_view(request, shortcode):
     """
     model = Url
     obj = get_object_or_404(model, shortcode=shortcode)
+    obj.visited()
     return redirect(obj)

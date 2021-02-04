@@ -96,5 +96,29 @@ class TestRedirectView(SetUpClass):
         self.assertRedirects(
                                 resp, 
                                 self.url.long_url, 
-                                fetch_redirect_response=False)       
+                                fetch_redirect_response=False)
+
+
+class TestUrlStatsView(SetUpClass):
+    """this class tests the view that returns some stats about a url"""
+
+    def test_view_returns_200(self):
+        shortcode = self.url.shortcode
+        route = reverse("url-stats", args=[shortcode])
+
+        resp = self.client.get(route)
+
+        self.assertEqual(resp.status_code, 200)
+
+    def test_expected_params_in_response(self):
+        shortcode = self.url.shortcode
+        route = reverse("url-stats", args=[shortcode])
+
+        resp = self.client.get(route)
+
+        response_data = resp.data
+
+        self.assertContains(response_data, "dateCreated")
+        self.assertContains(response_data, "lastAccessed")
+        self.assertContains(response_data, "hits")       
 
