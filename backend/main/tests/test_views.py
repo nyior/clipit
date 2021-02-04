@@ -6,9 +6,7 @@ from django.urls import reverse
 import json
 
 
-class ShortenUrlView(APITestCase):
-    """ This tests the shorten url function"""
-
+class SetUpClass(APITestCase):
     @classmethod
     def setUpTestData(cls):
         """
@@ -27,7 +25,10 @@ class ShortenUrlView(APITestCase):
         invalid_payload = {
                             "longUrl": "https://nyior-clement.netlify.app/"
                             }
-                    
+
+
+class ShortenUrlView(SetUpClass):
+    """ This tests the shorten url function"""               
 
     def test_view_returns_status_ok(self):
         """tests if view always return an ok response"""
