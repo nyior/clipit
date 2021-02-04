@@ -65,7 +65,6 @@ def shorten_url(request):
                             )
 
 
-
 def redirect_view(request, shortcode):
     """
         Redirect to original url given shortcode.
