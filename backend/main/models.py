@@ -16,3 +16,6 @@ class Url(models.Model):
         self.hits += 1
         self.last_accessed = datetime.datetime.now()
         self.save()
+
+    def get_absolute_url(self):
+        return self.long_url
