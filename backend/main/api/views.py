@@ -5,7 +5,9 @@ from django.shortcuts import get_object_or_404, redirect
 
 from main.api.utils import (
                             shortcode_is_valid, 
-                            generate_shortcode)
+                            generate_shortcode,
+                            get_or_create_client,
+                            set_clientid_cookie)
 from main.models import Url
 
 import time
@@ -13,15 +15,15 @@ import time
 @api_view(['POST'])
 def shorten_url(request):
     """
-            Allows for the shortening of urls.
-            this endpoint accepts a POST request
-            with a payload in the form below
+        Allows for the shortening of urls.
+        this endpoint accepts a POST request
+        with a payload in the form below
             {
                 'longUrl' : 'the url to be shortened',
                 'shortcode : 'some shortcode here' (optional)
             }
 
-            it then returns a response in the form below:
+        it then returns a response in the form below:
 
             {
                 'longUrl' : 'the url to be shortened',
@@ -32,38 +34,34 @@ def shorten_url(request):
     long_url = data['longUrl']
 
     try:
+        #shortcode in request data?
         shortcode = data['shortcode']
-
-        if shortcode_is_valid(shortcode):
-            url = Url.objects.create(
-                                    long_url=long_url, 
-                                    shortcode=shortcode,)
-            
-            return Response(
-                                {
-                                    "longUrl": long_url,
-                                    "shortcode": url.shortcode
-                                }
-                                )
-        
-        return Response(
-                            {
-                                "shortcodeInvalid": True
-                            }
-                            )
     except KeyError:
+        #create shortcode if not sent in request data
         shortcode = generate_shortcode()
+    
+    #shortcode atleast four chars long?
+    if shortcode_is_valid(shortcode):
+        client = get_or_create_client(request)
+
         url = Url.objects.create(
-                                  long_url=long_url, 
-                                  shortcode=shortcode,)
-        
-        return Response(
+                                long_url=long_url, 
+                                shortcode=shortcode,
+                                created_by=client)
+            
+        response = Response(
                             {
                                 "longUrl": long_url,
                                 "shortcode": url.shortcode
                             }
-                            )
+                        )
 
+        #sets cookie               
+        set_clientid_cookie(request, response, client.client_id)
+        return response
+        
+    return Response( {"shortcodeInvalid": True} )
+    
 
 def redirect_view(request, shortcode):
     """
@@ -87,7 +85,10 @@ def get_url_stats(request, shortcode):
 
     #converts datetime to human readable form: 04-Feb-2021 at 21:26
     date_created = obj.created_at.strftime("%d-%b-%Y at %H:%M")
-    visited.strftime("%d-%b-%Y at %H:%M") if visited is not None else visited
+
+    if visited is not None:
+        visited = visited.strftime("%d-%b-%Y at %H:%M")
+        
     hits = obj.hits
 
     return Response(

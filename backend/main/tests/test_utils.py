@@ -4,7 +4,7 @@ from main.api.utils import (
                             generate_shortcode, 
                             shortcode_is_valid,
                             get_or_create_client,
-                            set_cookie)
+                            set_clientid_cookie)
 from main.models import Url, Client
 
 
@@ -25,7 +25,7 @@ class UtilsTest(APITestCase):
                             "longUrl": "https://nyior-clement.netlify.app/",
                             "shortcode": "xxbb5"
                         }
-        client = Client.objects.create(client_id="xxy45")
+        cls.request_client = Client.objects.create(client_id="xxy45")
 
     def test_generate_shortcode(self):
         """tests that the generate_shortcode function
@@ -52,24 +52,26 @@ class UtilsTest(APITestCase):
                                     format='json')
         request = response.wsgi_request
 
-        client = get_or_create_client(request)
+        client_obj = get_or_create_client(request)
 
-        self.assertTrue(isinstance(client, Client))
+        self.assertTrue(isinstance(client_obj, Client))
         
 
-    # def test_set_cookie(self):
-    #     """tests that the set_cookie method sets the appropriate
-    #     cookie on response"""
+    def test_set_cookie(self):
+        """tests that the set_cookie method sets the appropriate
+        cookie on response"""
 
-    #     response = self.client.post(
-    #                                 self.route, 
-    #                                 self.payload, 
-    #                                 format='json')
-    #     request = response.wsgi_request
+        response = self.client.post(
+                                    self.route, 
+                                    self.payload, 
+                                    format='json')
+        request = response.wsgi_request
 
-    #     set_cookie(
-    #                 request, 
-    #                 response, 
-    #                 self.client)
+        set_clientid_cookie(
+                    request, 
+                    response, 
+                    self.request_client.client_id)
 
-    #     print(request._headers)
+        self.assertEqual(
+                          response.cookies["clientId"].value, 
+                          self.request_client.client_id)

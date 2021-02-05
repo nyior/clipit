@@ -37,7 +37,13 @@ def get_or_create_client(request):
         return Client.objects.create(client_id=client_id)
 
 
-def set_cookie(request, response, client_id):
+def set_clientid_cookie(request, response, client_id):
     if not 'clientId' in request.COOKIES:
-        response.set_cookie('clientId', client_id, max_age=31556952)
+        max_age = 365 * 24 * 60 * 60
+        response.set_cookie(
+                            'clientId', 
+                            client_id, 
+                            max_age=max_age, 
+                            expires=None
+                            )
 
