@@ -26,6 +26,7 @@ INSTALLED_APPS = [
 
     #third party packages
     'rest_framework',
+    'corsheaders',
 
     #developer apps
     'main'
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +57,12 @@ DATABASES = {
     }
 }
 
+#use postgre-sql on heroku
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -65,3 +73,5 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CORS_ALLOW_ALL_ORIGINS=True
