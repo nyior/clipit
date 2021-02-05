@@ -25,3 +25,12 @@ def shortcode_is_valid(shortcode):
     if shortcode_exists==False and length_ok==True:
         return True
     return False
+
+
+def get_or_create_client(request):
+    pass
+
+
+def set_cookie(request, response, client_id):
+    pass
+
