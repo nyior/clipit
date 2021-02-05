@@ -88,7 +88,7 @@ def get_url_stats(request, shortcode):
 
     if visited is not None:
         visited = visited.strftime("%d-%b-%Y at %H:%M")
-        
+
     hits = obj.hits
 
     return Response(
@@ -98,3 +98,8 @@ def get_url_stats(request, shortcode):
                             "hits": hits
                         }
                         )
+
+
+@api_view(['GET'])
+def get_client_urls(request):
+    pass

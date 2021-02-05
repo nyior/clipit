@@ -115,5 +115,17 @@ class TestUrlStatsView(SetUpClass):
 
         self.assertContains(resp, "dateCreated")
         self.assertContains(resp, "lastAccessed")
-        self.assertContains(resp, "hits")       
+        self.assertContains(resp, "hits") 
 
+
+class TestGetClientUrlsView(SetUpClass):
+    """this class tests the view that returns a list of all the 
+    urls shortened by a client"""
+
+    def test_view_returns_200(self):
+        shortcode = self.url.shortcode
+        route = reverse("list-urls")
+
+        resp = self.client.get(route)
+
+        self.assertEqual(resp.status_code, 200)
