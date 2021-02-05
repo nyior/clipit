@@ -28,9 +28,16 @@ def shortcode_is_valid(shortcode):
 
 
 def get_or_create_client(request):
-    pass
+    if 'clientId' in request.COOKIES:
+        client_id = request.COOKIES['clientId']
+        client, _ = Client.objects.get_or_create(client_id=client_id)
+        return client
+    else:
+        client_id = generate_shortcode()
+        return Client.objects.create(client_id=client_id)
 
 
 def set_cookie(request, response, client_id):
-    pass
+    if not 'clientId' in request.COOKIES:
+        response.set_cookie('clientId', client_id, max_age=31556952)
 
