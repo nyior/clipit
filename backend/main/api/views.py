@@ -8,7 +8,7 @@ from main.api.utils import (
                             generate_shortcode,
                             get_or_create_client,
                             set_clientid_cookie)
-from main.models import Url
+from main.models import Url, Client
 
 import time
 
@@ -102,4 +102,32 @@ def get_url_stats(request, shortcode):
 
 @api_view(['GET'])
 def get_client_urls(request):
-    pass
+    """this view returns a list of all the urls shortened
+    by a user"""
+    if 'clientId' in request.COOKIES:
+        urls = []
+
+        client_id = request.COOKIES['clientId']
+        client, _ = Client.objects.get_or_create(
+            client_id=client_id
+        )
+
+        url_objects = Url.objects.filter(
+            created_by=client
+        ).order_by("-created_at")
+        
+        for url in url_objects:
+            url = {
+                "longUrl": url.long_url,
+                "shortcode": url.shortcode
+            }
+
+            urls.append(url)
+            
+        return Response(
+                            {
+                                'urls': urls
+                            }
+                            )
+
+    return Response("no urls found for this client")
