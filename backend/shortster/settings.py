@@ -23,9 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.staticfiles',
 
     #third party packages
     'rest_framework',
+    'rest_framework_swagger',
     'corsheaders',
 
     #developer apps
@@ -42,7 +44,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+     'DEFAULT_AUTHENTICATION_CLASSES': [
+    ]
+}
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True
+    },
+]
 #where django goes to find routing info
 ROOT_URLCONF = 'shortster.urls'
 
@@ -62,6 +75,10 @@ if 'DATABASE_URL' in os.environ:
     import dj_database_url
     
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 LANGUAGE_CODE = 'en-us'
