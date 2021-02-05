@@ -1,4 +1,4 @@
-from main.models import Url
+from main.models import Url, Client
 from hashids import Hashids
 
 

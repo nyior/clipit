@@ -1,3 +1,4 @@
+from django.urls import reverse
 from rest_framework.test import APITestCase
 from main.api.utils import (
                             generate_shortcode, 
@@ -19,17 +20,12 @@ class UtilsTest(APITestCase):
         cls.url = Url.objects.create(
                                     long_url="https://nyior-clement.netlify.app/",
                                     shortcode="xxbb5t") 
-
-        cls.request = {
-            "COOKIES": {
-                "clientId": "xggh7"
-            }
-        }
-        cls.invalid_request = {
-            "COOKIES": {
-               
-            }
-        }
+        cls.route = reverse("shorten-url")
+        cls.payload = {
+                            "longUrl": "https://nyior-clement.netlify.app/",
+                            "shortcode": "xxbb5"
+                        }
+        client = Client.objects.create(client_id="xxy45")
 
     def test_generate_shortcode(self):
         """tests that the generate_shortcode function
@@ -49,25 +45,31 @@ class UtilsTest(APITestCase):
     def test_get_or_create_client(self):
         """tests that the get_or_create_client method
         always returns a client object"""
+        
+        response = self.client.post(
+                                    self.route, 
+                                    self.payload, 
+                                    format='json')
+        request = response.wsgi_request
 
-        client = get_or_create_client(self.request)
-        client_2 = get_or_create_client(self.invalid_request)
+        client = get_or_create_client(request)
 
         self.assertTrue(isinstance(client, Client))
-        self.assertTrue(isinstance(client_2, Client))
+        
 
     def test_set_cookie(self):
         """tests that the set_cookie method sets the appropriate
-        cookie on response header"""
+        cookie on response"""
 
-        client_id = self.request['COOKIES']['clientId']
+        response = self.client.post(
+                                    self.route, 
+                                    self.payload, 
+                                    format='json')
+        request = response.wsgi_request
 
         set_cookie(
-                    self.invalid_request, 
-                    self.invalid_request, 
-                    client_id)
+                    request, 
+                    response, 
+                    self.client)
 
-        self.assertContains(
-                            self.invalid_request['COOKIES']['clientId'])
-        self.assertEqual(
-                          self.invalid_request['COOKIES']['clientId'])
+        self.assertContains(response, "clientId")
