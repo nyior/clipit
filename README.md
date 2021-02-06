@@ -88,9 +88,13 @@ npm run lint
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Website
+you could shorten your urls with shortster [here](https://shter.netlify.app/)
+
+
 find the documentation for the API backend [here](https://shter.herokuapp.com/docs)
 **Note** that even though the ``` /<shortcode> ``` endpoint for handling the redirect
 isn't on the documentation page, it works perfectly.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

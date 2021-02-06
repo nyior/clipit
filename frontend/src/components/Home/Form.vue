@@ -1,43 +1,67 @@
 <template>
-<div class="row px-md-5 px-3">
+  <div class="row px-5">
     <div class="col-12">
-        <div v-if="showRegularForm" id="regular-form">
-            <RegularForm @hide-form="toggle"/>
-        </div>
+      <div v-if="showRegularForm" id="regular-form">
+        <RegularForm @hide-form="toggle" @on-submit="shortenUrl" />
+      </div>
 
-        <div v-else id="advanced-form">
-             <AdvancedForm  @hide-form="toggle"/>
-        </div>
+      <div v-else id="advanced-form">
+        <AdvancedForm @hide-form="toggle" @on-submit="shortenUrl" />
+      </div>
+
+      <div v-if="isLoading" class="space-up text-center">
+        <P>...clipping url...</P>
+      </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
+import { apiService } from "@/utils/api.service.js";
 import RegularForm from "./RegularForm.vue";
 import AdvancedForm from "./AdvancedForm.vue";
 
 export default {
-    name: "Form",
+  name: "Form",
 
-    data(){
-      return{
-          showRegularForm: true
-      }
+  data() {
+    return {
+      showRegularForm: true,
+      isLoading: false
+    };
+  },
+
+  components: {
+    RegularForm,
+    AdvancedForm
+  },
+
+  methods: {
+    toggle() {
+      this.showRegularForm = !this.showRegularForm;
     },
 
-    components: {
-        RegularForm,
-        AdvancedForm
-    },
+    shortenUrl(payload) {
+      this.isLoading = true;
+      let shorten_url_endpoint = `api/v1/shortcode`;
 
-    methods: {
-        toggle(){
-            this.showRegularForm = !this.showRegularForm
-        }
-    },
-}
+      let method = "POST";
+
+      apiService(shorten_url_endpoint, method, payload)
+        .then(data => {
+          this.isLoading = false;
+          this.$emit("on-submit", data);
+        })
+        .catch(error => {
+          this.isLoading = false;
+        });
+    }
+  }
+};
 </script>
 
 <style scoped>
-
+p {
+  color: #007f37;
+}
 </style>

@@ -15,6 +15,18 @@ body {
 	margin-top: 15rem;
 }
 
+.space-up{
+    margin-top: 10rem;
+}
+
+p{
+    font-size: 1.6rem;
+}
+
+small{
+    font-size: 1.4rem;
+}
+
 a{
     text-decoration: none !important;
 }

@@ -20,7 +20,9 @@ def shortcode_is_valid(shortcode):
     """verifies that shortcode does not exist and that
     and that shortcode is atleast 4 chars"""
     shortcode_exists = Url.objects.filter(shortcode=shortcode).exists()
-    length_ok = True if len(shortcode) >= 4 else False
+
+    #user shortcode between 4-30 ?
+    length_ok = True if len(shortcode) >= 4 and len(shortcode) < 30 else False
 
     if shortcode_exists==False and length_ok==True:
         return True
