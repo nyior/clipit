@@ -53,6 +53,37 @@ Don't worry, we got you! learn about python virtual environments and pipenv [her
 Don't have Python 3 installed? Get it [here](https://www.python.org/downloads/)
 
 
+## Frontend Project setup
+
+Navigate into the frontend folder
+
+### installs all project dependencies
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
