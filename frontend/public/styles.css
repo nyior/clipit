@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Quicksand:wght@400;500;700&display=swap');
+
+
+html,
+body {
+    font-size: 62.5%;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+    overflow-x: hidden;
+    height: 100%;;
+}
+
+.hero-container{
+	margin-top: 15rem;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.btn{
+	letter-spacing: 1px;
+    background-color: #007f37;
+	color: white !important;
+	font-weight: bold;
+	font-size: 2rem;
+    text-align: center;
+    width: 12rem;
+	height: 4rem;
+}
+
+span{
+    color: #007f37;
+}
+
+h3{
+    font-size: 2.5rem;  
+    letter-spacing: 1px; 
+}
+
+
+.sub-heading{
+	font-size: 3.0rem;	
+    letter-spacing: 2px;
+    color: #007f37;
+    opacity: 0.7;
+}
+
+input[type="text"]{
+    font-size: 1.4rem;
+    padding: 5px 20px;
+}
+
+form {
+    width: 50rem;
+    height: 3rem;
+    border-radius: 10px;
+}
+
+.input-group-text{
+    border: none;
+    font-size: 1.6rem;
+    color:  #7a09c4;
+}
+
+  
+@media only screen and (max-width: 600px) {	
+	.sub-heading{
+		font-size: 2.5rem;	
+		letter-spacing: 2px;
+    }
+    
+    form {
+        width:  100%;
+        height: 3rem;
+        border-radius: 10px;
+    }
+    
+    .input-group-text{
+        border: none;
+        font-size: 1.4rem;
+        color:  #7a09c4;
+    }
+
+    .hero-container{
+        margin-top: 20rem;
+    }
+    
+    h3{
+        font-size: 2rem;  
+        letter-spacing: 1px; 
+    }
+}
