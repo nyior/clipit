@@ -46,6 +46,7 @@ def set_clientid_cookie(request, response, client_id):
                             'clientId', 
                             client_id, 
                             max_age=max_age, 
-                            expires=None
+                            expires=None,
+                            secure=True
                             )
 
