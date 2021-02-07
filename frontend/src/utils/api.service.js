@@ -15,11 +15,11 @@ async function apiService(endpoint, method, data) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: data !== undefined ? data : null,
+            body: data !== undefined ? JSON.stringify(data) : null,
         }
     );
 
-    return response.data; 
+    return response.json(); 
 }
 
 // function apiService(endpoint, method, data) {
