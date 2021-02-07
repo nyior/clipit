@@ -23,7 +23,7 @@ do with shortster.
 - you could submit a long URL and get an auto generated shortened version of that url
 - as a user, sometimes you'd want to customize the short URL so that you could recall what URL it is referencing or give it a cool name. Shortster allows you to do that too. Just submit the long url along with a custom short url you'd want the system to use.
 - shortster allows you retrieve a list of all the urls you had shortened in the past
-- lastly, shortster also allows you see a report of your short URLs, when it was created it, and how many times it was clicked, and the last time it was accessed.
+- lastly, shortster also allows you see a report of your short URLs, when it was created, how many times it was clicked, and the last time it was accessed.
 
 
 ## Backend Project Setup(backend folder): 
