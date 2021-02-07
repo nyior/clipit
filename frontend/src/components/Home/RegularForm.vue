@@ -14,19 +14,24 @@
           </h3>
         </div>
 
-        <form class="input-group mt-5" @submit.prevent="onSubmit">
-          <input
-            class="form-control py-2 border-right-0 border"
-            type="text"
-            placeholder="paste your long url here"
-            v-model="longUrl"
-          />
-          <span class="input-group-append">
-            <div class="input-group-text bg-white">
-              <i class="fa fa-scissors" aria-hidden="true" @click="onSubmit">
-              </i>
+        <form class="mt-5" @submit.prevent="onSubmit">
+            <input
+                class="form-control py-2 border-right-0 border"
+                type="text"
+                placeholder="paste your long url here"
+                v-validate="'required|url'" 
+                name="url"
+                v-model="longUrl"
+            />
+
+            <div class="mt-2">
+                <span class="text-danger">{{ errors.first('url') }}</span>
             </div>
-          </span>
+
+            <button type="submit" class="btn py-2 my-2">
+                <i class="fa fa-scissors" aria-hidden="true" @click="onSubmit">
+                </i> clip
+            </button>            
         </form>
       </div>
     </div>
@@ -56,9 +61,5 @@ export default {
 </script>
 
 <style scoped>
-.fa-scissors {
-  color: #007f37;
-  font-weight: bold !important;
-  font-size: 3rem;
-}
+
 </style>

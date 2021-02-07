@@ -53,8 +53,8 @@ export default {
 
   data() {
     return {
-      host: location.hostname + '/',
-      scheme: location.protocol + '//'
+      host: 'shter.herokuapp.com/',
+      scheme: 'https://'
     };
   },
 

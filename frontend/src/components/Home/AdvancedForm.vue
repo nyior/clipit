@@ -18,17 +18,26 @@
             class="form-control py-2 my-2"
             type="text"
             placeholder="paste your long url here"
+            v-validate="'required|url'" 
+            name="url"
             v-model="longUrl"
             required
           />
+        
+          <span class="text-danger">{{ errors.first('url') }}</span>
 
           <input
             class="form-control py-2 my-2"
             type="text"
             placeholder="custom url(between 4 - 30 characters)"
+            v-validate="'required|min:4|max:30|alpha_num'"
+            name="shortcode"
             v-model="shortcode"
             required
           />
+          <div>
+             <span class="text-danger">{{ errors.first('shortcode') }}</span>
+          </div>
 
           <button type="submit" class="btn py-2 my-2">
             submit
@@ -65,4 +74,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
