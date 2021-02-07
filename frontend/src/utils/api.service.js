@@ -1,8 +1,6 @@
-import axios from "axios";
+// const API_URL = "https://shter.herokuapp.com";
 
-const API_URL = "https://shter.herokuapp.com";
-
-// axios.defaults.withCredentials = true
+const API_URL = "http://127.0.0.1:8000"; 
 
 async function apiService(endpoint, method, data) {
     endpoint = `${API_URL}/${endpoint}`;

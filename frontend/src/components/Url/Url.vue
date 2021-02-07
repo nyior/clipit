@@ -26,7 +26,7 @@
       <div>
         <small>
           clipped url:
-          <a :href="encodeURI(url.shortcode)" target="blank">
+          <a :href="scheme + host+ encodeURI(url.shortcode)" target="blank">
             {{ url.shortcode }}
           </a>
         </small>
@@ -53,9 +53,8 @@ export default {
 
   data() {
     return {
-      longUrl: encodeURI(this.url.longUrl),
-      shortcode: encodeURI(this.url.shortcode),
-      trimmedUrl: this.url.longUrl.substring(0, 20).concat("...")
+      host: location.hostname + '/',
+      scheme: location.protocol + '//'
     };
   },
 
