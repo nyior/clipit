@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API_URL = "https://shter.herokuapp.com";
 
+// axios.defaults.withCredentials = true
+
 function apiService(endpoint, method, data) {
   endpoint = `${API_URL}/${endpoint}`;
 
