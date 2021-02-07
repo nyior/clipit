@@ -5,7 +5,8 @@
       class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
     >
       <p>
-        no urls found! click the button below to shorten your first url
+        coming soon! I ran into an issue with cookies, but I'm working on it.
+        click button below to go to home.
       </p>
 
       <router-link :to="{ name: 'home' }">
