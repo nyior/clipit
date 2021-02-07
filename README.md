@@ -11,9 +11,9 @@
 Simple! Have you worked with bitly or tinyurl before? shortster 
 does pretty much the same thing. It is a web application that allows
 you create shorter versions of those overly long smelly urls :) you want to share
-with other people. You know what? shortster is completely free ðŸ˜ƒ
+with other people. You know what? shortster is completely free :heart_eyes:
 
-If you like this repo, click the â­
+If you like this repo, click the :sparkles:
 
 ## what can shortster be used for?
 lol Nyior isn't that what you just explained in the paragraph above? 
