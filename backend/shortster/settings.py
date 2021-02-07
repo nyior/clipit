@@ -95,7 +95,7 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
         'https://shter.netlify.app',
-        'http://127.0.0.1'
+        'http://localhost:8080/'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
