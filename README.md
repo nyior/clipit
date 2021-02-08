@@ -45,6 +45,20 @@ pip install pipenv
 
 Upon completion run the first command again
 
+to run the backend's test cases run the command below in the backend directory(this command should always be ran after the virtual environment has been activated. Refer to the steps above
+
+```
+manage.py test
+
+```
+
+to spin up the backend's local development server, run the command below(again in the backend directory and after the virtual environment has been activated)
+
+```
+manage.py runserver
+
+```
+
 Don't know what virtual environments are or how to create virtual environments with pipenv?
 Don't worry, we got you! learn about python virtual environments and pipenv [here](https://docs.python-guide.org/dev/virtualenvs/#:~:text=virtualenv%20is%20a%20tool%20to,standalone%2C%20in%20place%20of%20Pipenv.)
 
