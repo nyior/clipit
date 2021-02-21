@@ -9,7 +9,7 @@
 
 ## what is shortster ?
 Simple! Have you worked with bitly or tinyurl before? shortster 
-does pretty much the same thing. It is a web application
+does pretty much the same thing *and more*. It is a web application
 with an accompanying browser extension that allows
 you create shorter versions of those overly long smelly urls :) 
 you want to share with other people. You know what? shortster 
@@ -31,7 +31,7 @@ do with shortster.
 - you could submit a long URL and get an auto generated shortened version of that url
 - as a user, sometimes you'd want to customize the short URL so that you could recall what URL it is referencing or give it a cool name. Shortster allows you to do that too. Just submit the long url along with a custom short url you'd want the system to use.
 - shortster allows you retrieve a list of all the urls you had shortened in the past
-- lastly, shortster also allows you see a report of your short URLs, when it was created it, and how many times it was clicked, and the last time it was accessed.
+- lastly, shortster also allows you see a report of your short URLs, when it was created, how many times it was clicked, and the last time it was accessed.
 
 
 ## Backend Project Setup(backend folder): 
@@ -52,6 +52,20 @@ pip install pipenv
 ```
 
 Upon completion run the first command again
+
+to run the backend's test cases run the command below in the backend directory(this command should always be ran after the virtual environment has been activated. Refer to the steps above
+
+```
+manage.py test
+
+```
+
+to spin up the backend's local development server, run the command below(again in the backend directory and after the virtual environment has been activated)
+
+```
+manage.py runserver
+
+```
 
 Don't know what virtual environments are or how to create virtual environments with pipenv?
 Don't worry, we got you! learn about python virtual environments and pipenv [here](https://docs.python-guide.org/dev/virtualenvs/#:~:text=virtualenv%20is%20a%20tool%20to,standalone%2C%20in%20place%20of%20Pipenv.)
