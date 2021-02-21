@@ -1,0 +1,149 @@
+<!doctype html>
+
+<html id="klinurl-html">
+    <head>
+        <link 
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+        >
+
+        <link 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        >
+
+        <link 
+            rel="stylesheet" 
+            href="../css/background.css"
+        >
+
+        <script src="../js/code/background-1.js"></script> 
+        <script src="../js/code/background.js"></script> 
+        <title>KlinUrl</title> 
+    </head>
+
+    <body id="klinurl-body">
+    <div class="container-fluid">
+        <div class="row text-left">
+            <div class="col-10 mb-2 mr-auto">
+                <a 
+                    href="popup.html"
+                    title="home"
+                >
+                    <h1 id="klinurl-h1">
+                        KlinUrl
+                    </h1>
+                </a>
+                <h5 
+                    id="klinurl-h5"
+                >
+                    Create Clean and short Urls
+                </h5>
+            </div>
+
+            <div class="col-2 text-right mb-2">
+                <a 
+                    href="urls-list.html"
+                    title="history"
+                >
+                    <h1 id="klinurl-h1">
+                        <i 
+                            class="fa fa-bookmark" 
+                            aria-hidden="true"
+                            id="klinurl-save"
+                        >
+                        </i>
+                    </h1>
+                </a>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5 text-left">
+            <div class="col-12">
+                <div>
+                    <label 
+                        for="klinurl-input"
+                        class="text-muted"
+                    >
+                        Your tab's url has been automatically copied
+                    </label>
+                    <input 
+                        type="text" 
+                        class="text-muted"
+                        name="klinurl-input"
+                        placeholder="paste longurl" 
+                        id="longurl" 
+                    />
+                            
+                    <div 
+                        id="error-section"
+                        class="text-center text-white"
+                    >
+                    </div>
+        
+                    <div>
+                            
+                        <button
+                            class="btn mt-3 shadow"
+                            type="submit"
+                            id="klinurl-button"
+                        >
+                            shorten url
+                        </button>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-5 text-left">
+            <div class="col-12">
+                <table class="table table-sm">
+                    <thead>
+                        <tr 
+                            class="text-left klinurl-table-header"
+                        >
+                            <th>shortened url</th>
+                            <th>original Url</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="p-2">
+                            <td>
+                                <small>
+                                    <a 
+                                        href="" 
+                                        id="shortened-url"
+                                        class="text-muted"
+                                    >
+                                    </a>
+                                    <i
+                                        class="btn fa fa-clone"
+                                        aria-hidden="true"
+                                        id="klinurl-copy"
+                                    >
+                                        <span id="tooltiptext">    
+                                        </span>
+                                    </i>
+                                </small>
+                            </td>
+                            <td>
+                                <small>
+                                    <a 
+                                        href=""    
+                                        id="original-url"
+                                        class="text-muted"
+                                    >
+                                    </a>
+                                </small>
+                            </td>
+                        </tr>
+                              
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

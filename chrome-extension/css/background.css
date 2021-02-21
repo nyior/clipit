@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+#klinurl-html{
+    font-size: 62.5%;
+	margin: 0px;
+    padding: 0px;
+}
+
+#tooltiptext {  
+   color: #1ca9c9; 
+} 
+
+#klinurl-body{
+    height:40rem;
+    min-width:50rem;
+    font-size: 1.6rem;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 1px;
+    padding: 3rem;
+    background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
+    background: url("../icons/back.jpg");
+}
+
+#klinurl-button{
+	width: 15rem;
+	height: 4rem;
+	letter-spacing: 1px;
+    background-color: #1ca9c9;
+    color: white !important;
+	font-weight: bold;
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+#klinurl-copy{
+	font-size: 1.6rem;	
+    color: #1ca9c9;
+    visibility: hidden;
+}
+
+#klinurl-back{
+	font-size: 1.6rem;	
+    color: #1ca9c9;
+}
+
+#klinurl-save{
+    color: #1ca9c9;
+}
+
+#longurl{
+    width: 100%;
+    border: 0.1rem solid #1ca9c9;
+}
+
+#klinurl-h1{
+	font-size: 2.5rem;	
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #1ca9c9;
+    font-family: 'Paytone One', sans-serif;
+}
+
+
+#klinurl-h5{
+	font-size: 1.8rem;	
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #ce8b57;
+}
+
+.klinurl-table-header{
+    letter-spacing: 1px;
+    background-color: #1ca9c9;
+    color: white !important;
+	font-weight: bold;
+	font-size: 1.6rem;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.klinurl-animate {
+    -moz-animation: cssAnimation 0s ease-in 1.5s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 1.5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 1.5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 1.5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background-color: #ff3855;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}

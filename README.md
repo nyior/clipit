@@ -9,11 +9,19 @@
 
 ## what is shortster ?
 Simple! Have you worked with bitly or tinyurl before? shortster 
-does pretty much the same thing. It is a web application that allows
-you create shorter versions of those overly long smelly urls :) you want to share
-with other people. You know what? shortster is completely free ðŸ˜ƒ
+does pretty much the same thing. It is a web application
+with an accompanying browser extension that allows
+you create shorter versions of those overly long smelly urls :) 
+you want to share with other people. You know what? shortster 
+is completely free :sparkles:
 
-If you like this repo, click the â­
+## Lol Nyior what's the browser extension for? aren't you over engineering?
+No not really! the browser extension would allow 
+you shorten urls easily without having to visit our web platform 
+or many more like it each time you want to create a short url. 
+It makes shortening urls more convenient
+
+If you like this repo, click the :star:
 
 ## what can shortster be used for?
 lol Nyior isn't that what you just explained in the paragraph above? 
@@ -82,6 +90,11 @@ npm run test
 npm run lint
 ```
 
+## Chrome Extension Setup(chrome-extension folder): 
+
+- To test if it works, visit ```chrome://extensions``` in your browser and ensure that the Developer mode checkbox in the top right-hand corner is checked.
+
+- Click Load unpacked extension and select the directory in which your extension files live(basically, this project's folder). If the extension is valid, it will be active straight away so you can click on the extension's icon in your browser's address bar; this action should trigger a display of a pop up icon.
 
 
 ## Contributing
