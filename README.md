@@ -1,18 +1,21 @@
 <h1 align="center">
-	Shortster: A url shortner for the web
+	Clipit: A web url shortener with an accompanying browser extension.
 </h1>
 
 <p align="center">
-	<i>web application for creating short urls</i>
+	<i>
+        shorten your urls for free through our web 
+        interface or just install our browser extension
+    </i>
 </p>
 
 
-## what is shortster ?
-Simple! Have you worked with bitly or tinyurl before? shortster 
+## what is clipit ?
+Simple! Have you worked with bitly or tinyurl before? clipit 
 does pretty much the same thing *and more*. It is a web application
 with an accompanying browser extension that allows
 you create shorter versions of those overly long smelly urls :) 
-you want to share with other people. You know what? shortster 
+you want to share with other people. You know what? clipit 
 is completely free :sparkles:
 
 ## Lol Nyior what's the browser extension for? aren't you over engineering?
@@ -23,14 +26,14 @@ It makes shortening urls more convenient
 
 If you like this repo, click the :star:
 
-## what can shortster be used for?
-lol Nyior isn't that what you just explained in the paragraph above? 
+## what can clipit be used for?
+Nyior, isn't that what you just explained in the paragraph above? 
 Well yeah, but I want to be more specific. Here are the things you could 
-do with shortster.
+do with clipit.
 
 - you could submit a long URL and get an auto generated shortened version of that url
-- as a user, sometimes you'd want to customize the short URL so that you could recall what URL it is referencing or give it a cool name. Shortster allows you to do that too. Just submit the long url along with a custom short url you'd want the system to use.
-- shortster allows you retrieve a list of all the urls you had shortened in the past
+- as a user, sometimes you'd want to customize the short URL so that you could recall what URL it is referencing or give it a cool name. clipit allows you to do that too. Just submit the long url along with a custom short url you'd want the system to use.
+- clipit allows you retrieve a list of all the urls you had shortened in the past
 - lastly, shortster also allows you see a report of your short URLs, when it was created, how many times it was clicked, and the last time it was accessed.
 
 
@@ -118,7 +121,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 you could shorten your urls with shortster [here](https://shter.netlify.app/)
 
 
-find the documentation for the API backend [here](https://shter.herokuapp.com/docs)
+find the documentation for the API backend [here](https://shter.herokuapp.com)
 **Note** that even though the ``` /<shortcode> ``` endpoint for handling the redirect
 isn't on the documentation page, it works perfectly.
 
