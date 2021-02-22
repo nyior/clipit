@@ -6,7 +6,11 @@
           <h3>
             you don't want to create custom urls? we've got you!
             <span>
-              <i class="fa fa-arrow-left" aria-hidden="true" @click="hideForm">
+              <i 
+                class="fa fa-arrow-left" 
+                aria-hidden="true" 
+                @click="hideForm"
+              >
                 back
               </i>
             </span>
@@ -39,9 +43,7 @@
              <span class="text-danger">{{ errors.first('shortcode') }}</span>
           </div>
 
-          <button type="submit" class="btn py-2 my-2">
-            submit
-          </button>
+          <ClipButton :isLoading="isLoading"/>
         </form>
       </div>
     </div>
@@ -49,8 +51,21 @@
 </template>
 
 <script>
+import ClipButton from "@/components/Utils/ClipButton.vue";
+
 export default {
   name: "RegularForm",
+
+  components: {
+    ClipButton
+  },
+
+  props: {
+      isLoading: {
+          type: Boolean,
+          required: true,
+      }
+  },
 
   data() {
     return {

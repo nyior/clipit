@@ -26,7 +26,7 @@
       <div>
         <small>
           clipped url:
-          <a :href="scheme + host + encodeURI(url.shortcode)" target="blank">
+          <a :href="host + encodeURI(url.shortcode)" target="blank">
             {{ host + encodeURI(url.shortcode) }}
           </a>
         </small>
@@ -53,7 +53,7 @@ export default {
 
   data() {
     return {
-      host: 'shter.herokuapp.com/',
+      host: window.location.hostname,
       scheme: 'https://'
     };
   },

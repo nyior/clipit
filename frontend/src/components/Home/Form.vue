@@ -1,17 +1,26 @@
 <template>
   <div class="row px-5">
     <div class="col-12">
-      <div v-if="showRegularForm" id="regular-form">
-        <RegularForm @hide-form="toggle" @on-submit="shortenUrl" />
+
+      <div 
+        v-if="showRegularForm" 
+        id="regular-form"
+      >
+        <RegularForm 
+                    @hide-form="toggle" 
+                    @on-submit="shortenUrl" 
+                    :isLoading="isLoading"
+        />
       </div>
 
       <div v-else id="advanced-form">
-        <AdvancedForm @hide-form="toggle" @on-submit="shortenUrl" />
+        <AdvancedForm 
+                    @hide-form="toggle" 
+                    @on-submit="shortenUrl" 
+                    :isLoading="isLoading"
+        />
       </div>
 
-      <div v-if="isLoading" class="space-up text-center">
-        <P>...clipping url...</P>
-      </div>
     </div>
   </div>
 </template>
