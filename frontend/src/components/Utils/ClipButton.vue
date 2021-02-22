@@ -2,7 +2,7 @@
   
     <button 
         type="submit" 
-        class="btn py-2 my-2 shadow"
+        class="clip-button btn-block shadow text-center"
         :class="{ 'is-loading': isLoading }"
     >
         <div class="text">
@@ -14,9 +14,9 @@
             clip
         </div>
 
-        <div class="loading-icon">
+        <div class="loading-icon mr-5">
             <i 
-                class="fa fa-spinner" 
+                class="fa fa-spinner fa-spin" 
                 aria-hidden="true">
             </i>
         </div>
@@ -25,6 +25,16 @@
 </template>
 
 <style scoped>
+
+.clip-button {
+    background-color: #01af5e;
+	color: white !important;
+	font-weight: bold;
+	font-size: 2rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
 button > .text {
     will-change: transform, opacity;

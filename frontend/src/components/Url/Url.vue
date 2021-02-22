@@ -53,7 +53,7 @@ export default {
 
   data() {
     return {
-      host: window.location.hostname,
+      host: window.location.hostname + '/',
       scheme: 'https://'
     };
   },
