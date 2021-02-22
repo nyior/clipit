@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-lg py-3 fixed px-5 shadow">
+  <nav class="navbar navbar-expand-lg py-3 fixed px-5 shadow-sm">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
-      shortster
+      clipit
     </router-link>
 
     <router-link :to="{ name: 'url-list' }" class="ml-auto">
-      <button class="btn">
+      <button class="btn shadow">
         all urls
       </button>
     </router-link>

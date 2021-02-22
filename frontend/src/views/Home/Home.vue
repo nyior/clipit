@@ -2,9 +2,13 @@
   <div class="container-fluid hero-container">
     <Form @on-submit="setUrl" />
 
-    <div class="space-up" v-if="response !== null">
+    <div 
+        class="space-up" 
+        v-if="response !== null"
+    >
       <Url :url="response" />
     </div>
+    
   </div>
 </template>
 
@@ -38,7 +42,7 @@ export default {
   },
 
   mounted: function() {
-    document.title = "Shortster | Home";
+    document.title = "clipit | Home";
   }
 };
 </script>

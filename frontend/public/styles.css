@@ -39,7 +39,10 @@ a{
 	font-size: 2rem;
     text-align: center;
     width: 12rem;
-	height: 4rem;
+    height: 4rem;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 span{

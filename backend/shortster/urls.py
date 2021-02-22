@@ -9,5 +9,5 @@ schema_view = get_swagger_view(title='shortster API')
 urlpatterns = [
     path('<str:shortcode>', redirect_view, name="redirect"),
     path('api/v1/', include('main.api.urls')),
-    path('docs', schema_view)
+    path(' ', schema_view)
 ]
