@@ -11,8 +11,8 @@
 
       <router-link :to="{ name: 'home' }">
         <button class="btn">
+          <i class="fa fa-arrow-left" aria-hidden="true"> </i>
           go to
-          <i class="fa fa-arrow-right" aria-hidden="true"> </i>
         </button>
       </router-link>
     </div>

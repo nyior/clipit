@@ -40,9 +40,6 @@ a{
     text-align: center;
     width: 12rem;
     height: 4rem;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
 }
 
 span{
