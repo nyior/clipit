@@ -26,7 +26,7 @@
       <div>
         <small>
           clipped url:
-          <a :href="host + encodeURI(url.shortcode)" target="blank">
+          <a :href="scheme + host + encodeURI(url.shortcode)" target="blank">
             {{ host + encodeURI(url.shortcode) }}
           </a>
         </small>
