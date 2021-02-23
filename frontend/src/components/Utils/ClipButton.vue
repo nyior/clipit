@@ -40,6 +40,7 @@ button > .text {
     will-change: transform, opacity;
     transition: all 0.3s ease-in-out;
     opacity: 1;
+    border: none;
 }
 button > .loading-icon {
     position: absolute;
@@ -52,6 +53,7 @@ button > .loading-icon {
 button.is-loading > .text {
     transform: translateY(-100px);
     opacity: 0;
+    border: none;
 }
 button.is-loading > .loading-icon {
     transform: translateY(-100%);

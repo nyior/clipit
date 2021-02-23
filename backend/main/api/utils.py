@@ -16,8 +16,22 @@ def generate_shortcode():
         return hashid
 
 
+def generate_client_id():
+    primary_key = 1
+
+    try:
+        primary_key = Client.objects.latest('id').id + 1
+    except Exception:
+        primary_key = 1
+    finally:
+        hashids = Hashids(min_length=6)
+        hashid = hashids.encode(primary_key)
+
+        return hashid
+
+
 def shortcode_is_valid(shortcode):
-    """verifies that shortcode does not exist and that
+    """verifies that shortcode does not exist
     and that shortcode is atleast 4 chars"""
     shortcode_exists = Url.objects.filter(shortcode=shortcode).exists()
 
@@ -35,7 +49,7 @@ def get_or_create_client(request):
         client, _ = Client.objects.get_or_create(client_id=client_id)
         return client
     else:
-        client_id = generate_shortcode()
+        client_id = generate_client_id()
         return Client.objects.create(client_id=client_id)
 
 
