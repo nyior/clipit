@@ -26,13 +26,14 @@
       </p>
     </div>
 
-    <div
-      v-else
-      v-for="url in urls"
-      :key="url.shortcode"
-      class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
-    >
-      <Url :url="url" />
+    <div v-if="urls.length > 0 && !isLoading">
+      <div
+        v-for="url in urls"
+        :key="url.shortcode"
+        class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
+      >
+        <Url :url="url" />
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +57,7 @@ export default {
   },
 
   methods: {
-    getUrlStats() {
+    getUrlsList() {
       this.isLoading = true;
       let urls_endpoint = `api/v1/urls`;
 
@@ -75,7 +76,7 @@ export default {
 
   mounted: function() {
     document.title = "Shortster | all-urls";
-    this.getUrlStats();
+    this.getUrlsList();
   }
 };
 </script>
