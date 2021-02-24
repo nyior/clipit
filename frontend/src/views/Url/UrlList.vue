@@ -58,7 +58,11 @@ export default {
   },
 
   methods: {
+<<<<<<< HEAD
     getUrlList() {
+=======
+    getUrlsList() {
+>>>>>>> main
       this.isLoading = true;
       let urls_endpoint = `api/v1/urls`;
 
@@ -77,7 +81,7 @@ export default {
 
   mounted: function() {
     document.title = "Shortster | all-urls";
-    this.getUrlStats();
+    this.getUrlsList();
   }
 };
 </script>
