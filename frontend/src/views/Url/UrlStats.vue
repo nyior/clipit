@@ -34,11 +34,9 @@
       </div>
 
       <hr />
-      <p>
-        <router-link :to="{ name: 'home' }">
-          <i class="fa fa-arrow-left" aria-hidden="true"> </i>
-          back to home
-        </router-link>
+      <p @click="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"> </i>
+        back 
       </p>
     </div>
   </div>
@@ -88,6 +86,10 @@ export default {
         .catch(error => {
           this.isLoading = false;
         });
+    },
+
+    back() {
+      this.$router.back();
     }
   },
 
