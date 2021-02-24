@@ -93,8 +93,8 @@ def get_url_stats(request, shortcode):
 
     return Response(
                         {
-                            "dateCreated": date_created,
-                            "lastAccessed": visited,
+                            "dateCreated": date_created + " " + "GMT",
+                            "lastAccessed": visited + " " + "GMT",
                             "hits": hits
                         }
                         )
