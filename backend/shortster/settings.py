@@ -36,8 +36,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'django_cookies_samesite.middleware.CookiesSameSite',
     'corsheaders.middleware.CorsMiddleware',
-    # 'django_samesite_none.middleware.SameSiteNoneMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,4 +101,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+SESSION_COOKIE_SAMESITE = 'none'
+SESSION_COOKIE_SAMESITE_FORCE_ALL = True
  
