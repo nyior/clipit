@@ -34,7 +34,7 @@
             class="form-control py-2 my-2"
             type="text"
             placeholder="custom url(between 4 - 30 characters)"
-            v-validate="'required|min:4|max:30|alpha_num'"
+            v-validate="'required|min:4|max:30'"
             name="shortcode"
             v-model="shortcode"
             required

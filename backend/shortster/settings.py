@@ -97,7 +97,7 @@ USE_TZ = True
 CORS_ALLOWED_ORIGINS = [
     'https://www.clipit.fun',
     'https://clipit.netlify.app',
-    'http://localhost'
+    'http://localhost:8080'
 ]
 
 CORS_ALLOW_CREDENTIALS = True

@@ -50,7 +50,8 @@ def get_or_create_client(request):
         return client
     else:
         client_id = generate_client_id()
-        return Client.objects.create(client_id=client_id)
+        client, _ = Client.objects.get_or_create(client_id=client_id)
+        return client
 
 
 def set_clientid_cookie(request, response, client_id):
@@ -61,7 +62,7 @@ def set_clientid_cookie(request, response, client_id):
                             client_id, 
                             max_age=max_age, 
                             expires=None,
-                            secure=True,
+                            # secure=True,
                             samesite=None
                             )
 
