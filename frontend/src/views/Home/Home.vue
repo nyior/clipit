@@ -38,11 +38,21 @@ export default {
   methods: {
     setUrl(payload) {
       this.response = payload;
+    },
+
+    loadResponseFromLocalStorage(){
+        let response = {
+            "longUrl": window.localStorage.getItem("longUrl"),
+            "shortcode": window.localStorage.getItem("shortcode"),
+        }
+
+        this.response = response;
     }
   },
 
   mounted: function() {
     document.title = "clipit | Home";
+    this.loadResponseFromLocalStorage();
   }
 };
 </script>

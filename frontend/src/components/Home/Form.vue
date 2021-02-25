@@ -60,6 +60,10 @@ export default {
         .then(data => {
           this.isLoading = false;
           this.$emit("on-submit", data);
+
+        //save response data to browser storage
+          window.localStorage.setItem("longUrl", data.longUrl);
+          window.localStorage.setItem("shortcode", data.shortcode);
         })
         .catch(error => {
           this.isLoading = false;

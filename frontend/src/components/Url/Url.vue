@@ -1,6 +1,6 @@
 <template>
   <div class="row px-5">
-    <div class="col-12 col-md-6 ml-md-auto mr-md-auto p-2 card">
+    <div class="col-12 col-md-6 ml-md-auto mr-md-auto p-2 card my-4">
       <p id="url-stats">
         <router-link
           :to="{
