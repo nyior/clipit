@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="row px-5 text-left hero-container">
     <div
       v-if="urls.length <= 0 && !isLoading"
@@ -25,6 +26,7 @@
         ...loading all your urls...
       </p>
     </div>
+  </div>
 
     <div v-if="urls.length > 0 && !isLoading">
         <div
@@ -35,8 +37,7 @@
             <Url :url="url" />
         </div>
     </div>
-
-  </div>
+</div>
 </template>
 
 <style scoped>
@@ -46,9 +47,14 @@
 
 <script>
 import { apiService } from "@/utils/api.service.js";
+import Url from "@/components/Url/Url.vue";
 
 export default {
   name: "url-list",
+
+  components: {
+    Url
+  },
 
   data() {
     return {
@@ -67,7 +73,7 @@ export default {
       apiService(urls_endpoint, method)
         .then(data => {
           this.isLoading = false;
-          this.urls = [...data.urls];
+          this.urls = [...data];
         })
         .catch(error => {
           this.isLoading = false;

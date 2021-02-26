@@ -15,6 +15,7 @@ gunicorn = "*"
 django-cors-headers = "*"
 django-rest-swagger = "*"
 whitenoise = "*"
+django-cookies-samesite = "*"
 
 [requires]
 python_version = "3.7"

@@ -93,7 +93,7 @@ def get_url_stats(request, shortcode):
 
     return Response(
                         {
-                            "dateCreated": date_created,
+                            "dateCreated": date_created + " " + "GMT",
                             "lastAccessed": visited,
                             "hits": hits
                         }
@@ -124,10 +124,6 @@ def get_client_urls(request):
 
             urls.append(url)
             
-        return Response(
-                            {
-                                'urls': urls
-                            }
-                            )
+        return Response(urls)
 
     return Response("no urls found for this client")

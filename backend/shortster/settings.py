@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'django_cookies_samesite.middleware.CookiesSameSite',
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -96,12 +97,10 @@ USE_TZ = True
 CORS_ALLOWED_ORIGINS = [
     'https://www.clipit.fun',
     'https://clipit.netlify.app',
-    'http://localhost'
+    'http://localhost:8080'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'none'
+SESSION_COOKIE_SAMESITE_FORCE_ALL = True
  
