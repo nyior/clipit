@@ -94,11 +94,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ALLOWED_ORIGINS = [
-    'https://www.clipit.fun',
-    'https://clipit.netlify.app',
-    'http://localhost:8080'
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'https://www.clipit.fun',
+#     'https://clipit.netlify.app',
+#     'http://localhost:8080'
+# ]
+
+CORS_ALLOW_ALL_ORIGINS=True
 
 CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_SAMESITE = 'none'
