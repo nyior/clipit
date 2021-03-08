@@ -28,15 +28,14 @@
     </div>
   </div>
 
-    <div v-if="urls.length > 0 && !isLoading">
-        <div
-            v-for="url in urls"
-            :key="url.shortcode"
-            class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
-        >
-            <Url :url="url" />
-        </div>
-    </div>
+  <div v-if="urls.length > 0 && !isLoading">
+      <div
+        v-for="url in urls"
+        :key="url.shortcode"
+      >
+        <Url :url="url" />
+      </div>
+  </div>
 </div>
 </template>
 
@@ -82,7 +81,7 @@ export default {
   },
 
   mounted: function() {
-    document.title = "clipit | all-urls";
+    document.title = "Shortster | all-urls";
     this.getUrlsList();
   }
 };
