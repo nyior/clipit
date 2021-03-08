@@ -1,6 +1,7 @@
 
 async function postData(data) {
     const url = "http://shter.herokuapp.com/api/v1/shortcode";
+    // const url = "http://127.0.0.1:8000/api/v1/shortcode"; 
 
     const response = await fetch(
         url, 
@@ -35,7 +36,7 @@ const copyKlinLink = () => {
    
 const urlShortener = (url) => { 
 
-    postData( { "long_url": url })
+    postData( { "longUrl": url })
         .then(data => {
             originalUrl = encodeURI(data.longUrl)
             shortcode = encodeURI(data.shortcode)

@@ -1,4 +1,4 @@
-
+ 
 
 async function loadData(data) {
     const url = "http://shter.herokuapp.com/api/v1/urls";
@@ -24,7 +24,7 @@ const writeDataToDom = () => {
 
             let hasUrls = data.has_urls;
 
-            if (hasUrls === true){
+            if (hasUrls){
                 let urlsList = data.urls
                 let table = document.querySelector("#klinurl-table-body");
 
