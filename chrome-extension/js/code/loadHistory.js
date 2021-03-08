@@ -1,7 +1,7 @@
-
+ 
 
 async function loadData(data) {
-    const url = "http://www.klinurl.me/api/v1/urls/list";
+    const url = "http://shter.herokuapp.com/api/v1/urls";
 
     const response = await fetch(
         url, 
@@ -24,18 +24,19 @@ const writeDataToDom = () => {
 
             let hasUrls = data.has_urls;
 
-            if (hasUrls === true){
+            if (hasUrls){
                 let urlsList = data.urls
-                let table = document.getElementById("klinurl-table-body");
+                let table = document.querySelector("#klinurl-table-body");
 
                 for (let index = 0; index < urlsList.length; index++) {
                     const element =  urlsList[index];
 
-                    let originalUrl = encodeURI(element.long_url)
-                    let newUrl = encodeURI(element.klin_url)
-                    let scheme = encodeURI(data.scheme)
-                    let newurlHref = scheme.concat(newUrl);
-                    let trimmedUrl = originalUrl
+                    let originalUrl = encodeURI(element.longUrl)
+                    let shortcode = encodeURI(element.shortcode)
+                    let baseUrl = "https://www.clipit.fun/"
+                    let newUrl = `www.clipit.fun/${shortcode}`
+                    let newurlHref = baseUrl.concat(shortcode);
+                    let trimmedUrl = String(element.longUrl)
 
                     if(trimmedUrl.length > 10){
                         trimmedUrl = trimmedUrl.substring(0,20).concat("...");
@@ -77,7 +78,7 @@ const writeDataToDom = () => {
                     cell2.innerHTML = originalUrlString;      
                 }  
             }else{
-                let elem = document.getElementById("no-saved-urls");
+                let elem = document.querySelector("#no-saved-urls");
                 elem.innerHTML = "You have no shortened urls yet"  ; 
             }
     });

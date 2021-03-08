@@ -1,6 +1,6 @@
 
 const getCurrentTabUrl = (url) => { 
-    document.getElementById("longurl").value = url;
+    document.querySelector("#longurl").value = url;
 };
 
 
@@ -11,8 +11,8 @@ chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let klinurl = document.getElementById("shortened-url");
-    let longurl = document.getElementById("original-url");
+    let klinurl = document.querySelector("#shortened-url");
+    let longurl = document.querySelector("#original-url");
 
     klinurl.addEventListener("click", (e) => {
         chrome.tabs.create(

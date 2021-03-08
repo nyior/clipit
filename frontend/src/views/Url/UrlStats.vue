@@ -34,13 +34,9 @@
       </div>
 
       <hr />
-      <p>
-        <i 
-            class="fa fa-arrow-left" 
-            aria-hidden="true"
-            @click="back">
-            previous
-        </i>
+      <p @click="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"> </i>
+        back 
       </p>
     </div>
   </div>
@@ -92,8 +88,8 @@ export default {
         });
     },
 
-    back(){
-        this.$router.back();
+    back() {
+      this.$router.back();
     }
   },
 

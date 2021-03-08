@@ -124,6 +124,6 @@ def get_client_urls(request):
 
             urls.append(url)
             
-        return Response(urls)
+        return Response({"urls": urls, "has_urls": True})
 
-    return Response("no urls found for this client")
+    return Response({"has_urls": False})

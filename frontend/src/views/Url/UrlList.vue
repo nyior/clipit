@@ -72,7 +72,7 @@ export default {
       apiService(urls_endpoint, method)
         .then(data => {
           this.isLoading = false;
-          this.urls = [...data];
+          this.urls = [...data.urls];
         })
         .catch(error => {
           this.isLoading = false;

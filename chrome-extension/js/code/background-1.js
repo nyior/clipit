@@ -1,6 +1,7 @@
 
 async function postData(data) {
-    const url = "http://www.klinurl.me/api/v1/shorten";
+    const url = "http://shter.herokuapp.com/api/v1/shortcode";
+    // const url = "http://127.0.0.1:8000/api/v1/shortcode"; 
 
     const response = await fetch(
         url, 
@@ -19,13 +20,13 @@ async function postData(data) {
 
 
 const copyKlinLink = () => {
-    let element = document.getElementById("shortened-url");
+    let element = document.querySelector("#shortened-url");
     elementText = element.textContent;
 
     try {
       navigator.clipboard.writeText(elementText);
 
-      let elem = document.getElementById("tooltiptext");
+      let elem = document.querySelector("#tooltiptext");
       elem.innerHTML = "copied!"
     } catch (err) {
       alert("Oops, unable to copy");
@@ -35,31 +36,25 @@ const copyKlinLink = () => {
    
 const urlShortener = (url) => { 
 
-    postData( { "long_url": url })
+    postData( { "longUrl": url })
         .then(data => {
-            originalUrl = encodeURI(data.data.longUrl)
-            newUrl = encodeURI(data.data.klinUrl)
-            scheme = encodeURI(data.data.scheme)
-            newurlHref = scheme.concat(newUrl);
-            isDuplicate = data.data.isDuplicate;
-            trimmedUrl = String(data.data.longUrl)
+            originalUrl = encodeURI(data.longUrl)
+            shortcode = encodeURI(data.shortcode)
+            baseUrl = "https://www.clipit.fun/"
+            newUrl = `www.clipit.fun/${shortcode}`
+            newurlHref = baseUrl.concat(shortcode);
+            trimmedUrl = String(data.longUrl)
 
             if(trimmedUrl.length > 10){
                 trimmedUrl = trimmedUrl.substring(0,20).concat("...");
             } 
-            document.getElementById("shortened-url").href = newurlHref;
-            document.getElementById("original-url").href = originalUrl;
+            document.querySelector("#shortened-url").href = newurlHref;
+            document.querySelector("#original-url").href = originalUrl;
 
-            document.getElementById("shortened-url").innerHTML = newUrl;
-            document.getElementById("original-url").innerHTML = trimmedUrl;
+            document.querySelector("#shortened-url").innerHTML = newUrl;
+            document.querySelector("#original-url").innerHTML = trimmedUrl;
 
-            if (isDuplicate === true){
-                let elem = document.getElementById("error-section");
-                elem.classList.add("klinurl-animate");
-                elem.innerHTML = "url already shortened !"  ;  
-            };
-
-            let copy = document.getElementById("klinurl-copy");
+            let copy = document.querySelector("#klinurl-copy");
             copy.style.visibility = "visible";
 
             copy.addEventListener("click", (e) => {
@@ -77,7 +72,7 @@ const validateUrl= (url) =>{
 
 
 const getInputFieldCOntent = () => { 
-    let longUrl = document.getElementById("longurl").value;
+    let longUrl = document.querySelector("#longurl").value;
     
     if (validateUrl(longUrl)){
         urlShortener(longUrl)
@@ -86,11 +81,11 @@ const getInputFieldCOntent = () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let button = document.getElementById("klinurl-button");
+    let button = document.querySelector("#klinurl-button");
 
     button.addEventListener("click", (e) => {
         getInputFieldCOntent()
-        let elem = document.getElementById("error-section");
+        let elem = document.querySelector("#error-section");
         elem.classList.remove("klinurl-animate");
     });
 });
