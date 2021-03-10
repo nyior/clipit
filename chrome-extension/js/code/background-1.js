@@ -79,13 +79,40 @@ const getInputFieldCOntent = () => {
     };
 };
 
+const toggleForm = () => {
+    let elements = document.querySelectorAll(".advanced");
+    let regularPrompt = document.querySelector(".regular");
+
+    for (let index = 0; index < elements.length; index++) {
+        let element = elements[index];
+
+        if (element.style.display === "none") {
+            element.style.display = "block";
+            regularPrompt.style.display = "none";
+        } else {
+            element.style.display = "none";
+            regularPrompt.style.display = "block";
+        }
+        
+    }
+  }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     let button = document.querySelector("#klinurl-button");
+    let toggleButtons = document.querySelectorAll("#toggle");
 
     button.addEventListener("click", (e) => {
         getInputFieldCOntent()
-        let elem = document.querySelector("#error-section");
-        elem.classList.remove("klinurl-animate");
+
     });
+
+    for (let index = 0; index < toggleButtons.length; index++) {
+        let element = toggleButtons[index];
+
+        element.addEventListener("click", (e) => {
+            toggleForm();
+        });
+        
+    }  
 });

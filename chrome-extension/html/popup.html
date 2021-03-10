@@ -65,6 +65,26 @@
                         for="klinurl-input"
                         class="text-muted"
                     >
+                        <div class="mb-4 advanced" id="klinurl-h5">
+                            <i
+                                class="btn fa fa-arrow-left"
+                                aria-hidden="true"
+                                id="toggle"
+                            >
+                            </i> 
+                            click to create regular short url
+                              
+                        </div>
+
+                        <div class="mb-4 regular" id="klinurl-h5">
+                            click to crate custom short url
+                            <i
+                                class="btn fa fa-arrow-right"
+                                aria-hidden="true"
+                                id="toggle"
+                            >
+                            </i>   
+                        </div>
                         your tab's url has been automatically copied
                     </label>
                     <input 
@@ -74,12 +94,13 @@
                         placeholder="paste longurl" 
                         id="longurl" 
                     />
-                            
-                    <div 
-                        id="error-section"
-                        class="text-center text-white"
-                    >
-                    </div>
+                    <input 
+                        type="text" 
+                        class="text-muted advanced"
+                        name="klinurl-input"
+                        placeholder="type in custom url(btw 4-30 chars)" 
+                        id="shortcode" 
+                    />
         
                     <div>
                             

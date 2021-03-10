@@ -7,6 +7,10 @@
     padding: 0px;
 }
 
+.advanced{
+    display: none;
+}
+
 #tooltiptext {  
    color: #1ca9c9; 
 } 
@@ -51,6 +55,12 @@
 #longurl{
     width: 100%;
     border: 0.1rem solid #1ca9c9;
+}
+
+#shortcode{
+    width: 100%;
+    border: 0.1rem solid #1ca9c9;
+    margin-top: 1rem;
 }
 
 #klinurl-h1{
