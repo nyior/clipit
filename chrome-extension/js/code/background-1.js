@@ -34,9 +34,9 @@ const copyKlinLink = () => {
 }
   
    
-const urlShortener = (url) => { 
+const urlShortener = (data) => {
 
-    postData( { "longUrl": url })
+    postData( data )
         .then(data => {
             originalUrl = encodeURI(data.longUrl)
             shortcode = encodeURI(data.shortcode)
@@ -71,13 +71,25 @@ const validateUrl= (url) =>{
 };
 
 
+const validateShortcode= (shortcode) =>{
+    let condition = shortcode.length >= 4 && shortcode.length <= 31;
+    return (condition ? true : false);
+};
+
+
 const getInputFieldCOntent = () => { 
     let longUrl = document.querySelector("#longurl").value;
+    let shortcode = document.querySelector("#shortcode").value;
     
-    if (validateUrl(longUrl)){
-        urlShortener(longUrl)
+    if (shortcode && (validateUrl(longUrl) && validateShortcode(shortcode))){
+        urlShortener({ "longUrl": longUrl, "shortcode": shortcode }) 
+    }
+
+    if (!shortcode && validateUrl(longUrl)) {
+        urlShortener({ "longUrl": longUrl}) 
     };
 };
+
 
 const toggleForm = () => {
     let elements = document.querySelectorAll(".advanced");
@@ -95,7 +107,7 @@ const toggleForm = () => {
         }
         
     }
-  }
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
