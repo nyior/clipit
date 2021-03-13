@@ -1,13 +1,9 @@
 <template>
-  <div class="row text-left">
+  <div class="row text-center">
     <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
-
-      <div>
-          
         <div>
           <h3>
-            paste your long urls in the field below and have it 
-            shortened. Or do you want to create custom urls?
+            Do you want to create custom urls? we've got you!
 
             <span>
               <i 
@@ -24,7 +20,7 @@
 
         <form class="mt-5" @submit.prevent="onSubmit">
             <input
-                class="form-control py-2 border-right-0 border"
+                class="form-control py-2 my-3 border-right-0 border"
                 type="text"
                 placeholder="paste your long url here"
                 v-validate="'required|url'" 
@@ -33,7 +29,7 @@
                 v-model="longUrl"
             />
 
-            <div class="mt-2">
+            <div class="my-3">
                 <span 
                     class="text-danger"
                 >
@@ -43,8 +39,6 @@
 
             <ClipButton :isLoading="isLoading"/>            
         </form>
-
-      </div>
     </div>
   </div>
 </template>

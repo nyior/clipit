@@ -1,5 +1,5 @@
 <template>
-  <div class="row text-left">
+  <div class="row text-center">
     <div class="col-12 col-md-6 ml-md-auto mr-md-auto">
       <div>
         <div>
@@ -19,7 +19,7 @@
 
         <form class="mt-5" @submit.prevent="onSubmit">
           <input
-            class="form-control py-2 my-2"
+            class="form-control py-2 my-3"
             type="text"
             placeholder="paste your long url here"
             v-validate="'required|url'" 
@@ -31,7 +31,7 @@
           <span class="text-danger">{{ errors.first('url') }}</span>
 
           <input
-            class="form-control py-2 my-2"
+            class="form-control py-2 my-3"
             type="text"
             placeholder="custom url(between 4 - 30 characters)"
             v-validate="'required|min:4|max:30'"

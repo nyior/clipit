@@ -1,6 +1,6 @@
 <template>
   <div class="my-footer text-center">
-    <div class="row text-muted m-4">
+    <div class="row m-4">
       <div class="col-12">
         <p>copyright clipit 2021</p>
       </div>

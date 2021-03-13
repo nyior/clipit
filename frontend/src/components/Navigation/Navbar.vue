@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg py-3 fixed px-5 shadow-sm">
+  <nav class="navbar navbar-expand-lg py-3 fixed px-5">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
       clipit
     </router-link>
@@ -27,7 +27,7 @@ export default {
 
 .navbar-brand {
   font-size: 3rem;
-  color: #01af5e;
+  color: #e9492e;
   font-family: "Paytone One", sans-serif;
 }
 

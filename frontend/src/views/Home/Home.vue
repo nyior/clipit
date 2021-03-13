@@ -1,5 +1,10 @@
 <template>
   <div class="container-fluid hero-container">
+    <div class="row text-center">
+        <div class="col-12 heading">
+            CLIPIT
+        </div>
+    </div>
     <Form @on-submit="setUrl" />
 
     <div 
