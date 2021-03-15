@@ -25,7 +25,7 @@
     <body id="klinurl-body">
     <div class="container-fluid">
         <div class="row text-left">
-            <div class="col-10 mb-2 mr-auto">
+            <div class="col-1 mb-2 mr-auto">
                 <a 
                     href="popup.html"
                     title="home"
@@ -35,49 +35,52 @@
                     </h1>
                 </a>
             </div>
-            
-            <div class="col-2 text-right mb-2">
-                <a 
-                    href="urls-list.html"
-                    title="history"
+        </div>
+
+        <div class="row text-left mt-5 pt-5">
+            <div class="col-12 mb-2 mr-auto">
+                <h5 
+                    id="klinurl-h5"
                 >
-                    <h1 id="klinurl-h1">
-                        <i 
-                            class="fa fa-bookmark" 
-                            aria-hidden="true"
-                            id="klinurl-save"
-                        >
-                        </i>
-                    </h1>
-                </a> 
+                    how users had been interacting with your link
+                </h5>
             </div>
         </div>
 
-        <div class="row mt-5 pt-5 text-left">
+        <div class="row mt-5  text-left">
             <div class="col-12">
                 <table class="table table-sm">
                     <thead>
                         <tr 
                             class="text-left klinurl-table-header"
                         >
-                            <th>shortened urls</th>
-                            <th>original Urls</th>
-                            <th>url stats</th>
+                            <th>date created</th>
+                            <th>last accessed</th>
+                            <th>visits</th>
                         </tr>
                     </thead>
 
-                    <tbody id="klinurl-table-body">
+                    <tbody>
+                        <tr class="p-2">
+                            <td>
+                                <small  id="date-created">
+                                    
+                                </small>
+                            </td>
+                            <td>
+                                <small id="last-accessed">
+                                    
+                                </small>
+                            </td>
+                            <td>
+                                <small id="visits">
+                                    
+                                </small>
+                            </td>
+                        </tr>
                               
                     </tbody>
                 </table>
-            </div>
-
-            <div 
-                class="col-12 text-center p-2 text-danger"
-                id="no-saved-urls"
-            >
-
-
             </div>
         </div>
 

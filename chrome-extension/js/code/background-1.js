@@ -1,12 +1,31 @@
-
+const baseUrl = "http://shter.herokuapp.com/api/v1/";
 async function postData(data) {
-    const url = "http://shter.herokuapp.com/api/v1/shortcode";
-    // const url = "http://127.0.0.1:8000/api/v1/shortcode"; 
+    const url = `${baseUrl}shortcode`;
+    // const url = "http://127.0.0.1:8000/api/v1/shortcode";
 
     const response = await fetch(
         url, 
         {
             method: 'POST',
+            credentials:"include",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+    );
+
+    return response.json(); 
+}
+
+
+async function getUrlStats(shortcode) {
+    const url = `${baseUrl}${shortcode}/stats`;
+
+    const response = await fetch(
+        url, 
+        {
+            method: 'GET',
             credentials:"include",
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +65,7 @@ const urlShortener = (data) => {
             trimmedUrl = String(data.longUrl)
 
             if(trimmedUrl.length > 10){
-                trimmedUrl = trimmedUrl.substring(0,20).concat("...");
+                trimmedUrl = trimmedUrl.substring(0, 10).concat("...");
             } 
             document.querySelector("#shortened-url").href = newurlHref;
             document.querySelector("#original-url").href = originalUrl;
@@ -113,8 +132,14 @@ const toggleForm = () => {
 document.addEventListener("DOMContentLoaded", () => {
     let button = document.querySelector("#klinurl-button");
     let toggleButtons = document.querySelectorAll("#toggle");
+    let statsLink = document.querySelectorAll("#stats-link");
 
     button.addEventListener("click", (e) => {
+        getInputFieldCOntent()
+
+    });
+
+    statsLink.addEventListener("click", (e) => {
         getInputFieldCOntent()
 
     });
