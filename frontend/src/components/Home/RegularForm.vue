@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
         <div>
           <h3>
-            Do you want to create custom urls? we've got you!
+            Do you want to create custom URLs? we've got you!
 
             <span>
               <i 

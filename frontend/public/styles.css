@@ -13,7 +13,19 @@ body {
 }
 
 .hero-container{
-	margin-top: 15rem;
+	margin-top: 8rem;
+}
+
+thead{
+    letter-spacing: 1px;
+	font-weight: bold;
+    font-size: 1.6rem;
+    background-color: #e9492e;
+    color: white;
+}
+
+.borderless td, .borderless th {
+    border: none;
 }
 
 .space-up{
@@ -30,6 +42,7 @@ small{
 
 a{
     text-decoration: none !important;
+    color: #e9492e;
 }
 
 .btn{
@@ -44,7 +57,8 @@ a{
 }
 
 span{
-    color: #293a48;
+    color: #e9492e;
+    font-size: 2rem;
 }
 
 h3{
@@ -52,11 +66,9 @@ h3{
     letter-spacing: 1px; 
 }
 
-
-.heading{
-	font-size: 5.0rem;	
-    letter-spacing: 1px;
-    color: #e9492e;
+h4{
+    font-size: 3rem;  
+    letter-spacing: 1px; 
 }
 
 input[type="text"]{
@@ -100,11 +112,16 @@ form {
     }
 
     .hero-container{
-        margin-top: 20rem;
+        margin-top: 10rem;
     }
     
     h3{
         font-size: 2.5rem;  
+        letter-spacing: 1px; 
+    }
+
+    h4{
+        font-size: 2rem;  
         letter-spacing: 1px; 
     }
 }

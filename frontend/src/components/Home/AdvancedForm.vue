@@ -4,7 +4,7 @@
       <div>
         <div>
           <h3>
-            you don't want to create custom urls? we've got you!
+            you don't want to create custom URLs? we've got you!
             <span>
               <i 
                 class="fa fa-arrow-left" 

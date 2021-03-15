@@ -1,16 +1,17 @@
 <template>
   <div class="container-fluid hero-container">
-    <div class="row text-center">
-        <div class="col-12 heading">
-            CLIPIT
-        </div>
-    </div>
+    
     <Form @on-submit="setUrl" />
 
     <div 
         class="space-up" 
         v-if="response !== null"
     >
+      <div class="row text-center px-5">
+          <div class="col-12">
+              <h4>The most recent URL you worked with</h4>
+          </div>
+      </div>
       <Url :url="response" />
     </div>
     
