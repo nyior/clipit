@@ -6,9 +6,9 @@
           <h3>
             you don't want to create custom URLs? we've got you!
             <span>
-              <i 
-                class="fa fa-arrow-left" 
-                aria-hidden="true" 
+              <i
+                class="fa fa-arrow-left"
+                aria-hidden="true"
                 @click="hideForm"
               >
                 back
@@ -17,31 +17,24 @@
           </h3>
         </div>
 
-        <form class="mt-5 mb-5" @submit.prevent="onSubmit">
+        <form class="mt-5" @submit.prevent="onSubmit">
           <input
-            class="form-control py-2 my-3"
+            class="form-control py-2 my-3 long-url-input"
             type="text"
             placeholder="paste your long url here"
-            v-validate="'required|url'" 
             name="url"
             v-model="longUrl"
             required
           />
-        
-          <span class="text-danger">{{ errors.first('url') }}</span>
 
           <input
             class="form-control py-2 my-3"
             type="text"
             placeholder="custom url(between 4 - 30 characters)"
-            v-validate="'required|min:4|max:30'"
             name="shortcode"
             v-model="shortcode"
             required
           />
-          <div>
-             <span class="text-danger">{{ errors.first('shortcode') }}</span>
-          </div>
 
           <ClipButton :isLoading="isLoading"/>
         </form>
@@ -51,42 +44,47 @@
 </template>
 
 <script>
-import ClipButton from "@/components/Utils/ClipButton.vue";
+import { loadCurrentTabUrl } from '@/utils/helpers.js'
+import ClipButton from '@/components/Utils/ClipButton.vue'
 
 export default {
-  name: "RegularForm",
+  name: 'RegularForm',
 
   components: {
     ClipButton
   },
 
   props: {
-      isLoading: {
-          type: Boolean,
-          required: true,
-      }
+    isLoading: {
+      type: Boolean,
+      required: true
+    }
   },
 
-  data() {
+  data () {
     return {
       longUrl: null,
       shortcode: null
-    };
+    }
   },
 
   methods: {
-    hideForm() {
-      this.$emit("hide-form");
+    hideForm () {
+      this.$emit('show-regular-form')
     },
 
-    onSubmit() {
-      this.$emit("on-submit", {
+    onSubmit () {
+      this.$emit('on-submit', {
         longUrl: this.longUrl,
         shortcode: this.shortcode
-      });
+      })
     }
+  },
+
+  mounted: function () {
+    loadCurrentTabUrl()
   }
-};
+}
 </script>
 
 <style scoped>

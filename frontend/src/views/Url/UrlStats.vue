@@ -4,34 +4,45 @@
       v-if="isLoading"
       class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
     >
-      <p>
-        ...loading url stats...
-      </p>
+      <Loader />
     </div>
 
-    <div v-else class="col-12 col-md-6 ml-md-auto mr-md-auto p-4 card">
-      <h3 class="mb-5 text-center">statistics for your url</h3>
+    <div v-else class="col-12 col-md-6 ml-md-auto mr-md-auto p-4 shadow card">
+      <h4 class="mb-5 text-center">how users had been interacting with this URL</h4>
       <hr />
-      <div>
-        <small>
-          date created:
-          {{ dateCreated }}
-        </small>
-      </div>
+      <table class="table borderless table-sm">
+        <thead>
+            <tr 
+                class="text-left"
+            >
+                <th>created on</th>
+                <th>last accessed</th>
+                <th>visits</th>
+            </tr>
+        </thead>
 
-      <div>
-        <small>
-          last accessed:
-          {{ lastAccessed }}
-        </small>
-      </div>
+        <tbody>
+            <tr class="p-2">
+                <td>
+                        <small>
+                            {{ dateCreated }}
+                        </small>
+                </td> 
 
-      <div>
-        <small>
-          number of visits:
-          {{ hits }}
-        </small>
-      </div>
+                <td>
+                    <small>
+                        {{ lastAccessed }}
+                    </small>
+                </td> 
+
+                <td>
+                    <small>
+                        {{ hits }}
+                    </small>
+                </td>     
+            </tr>        
+        </tbody>
+      </table>
 
       <hr />
       <p @click="back">
@@ -43,15 +54,25 @@
 </template>
 
 <style scoped>
-@media only screen and (max-width: 600px) {
-}
+    thead{
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        background-color: #e9492e;
+        color: white;
+    }
 </style>
 
 <script>
 import { apiService } from "@/utils/api.service.js";
+import Loader from "@/components/Utils/Loader.vue";
 
 export default {
   name: "url-stats",
+
+  components: {
+    Loader
+  },
 
   props: {
     shortcode: {

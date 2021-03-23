@@ -7,12 +7,17 @@
         class="space-up" 
         v-if="response !== null"
     >
-      <div class="row text-center px-5">
-          <div class="col-12">
+      <div class="row text-left text-muted px-5">
+          <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
               <h4>The most recent URL you worked with</h4>
           </div>
       </div>
-      <Url :url="response" />
+
+      <div class="row text-left text-muted px-md-5 px-3">
+          <div class="col-12">
+              <Url :url="response" />
+          </div>
+      </div>
     </div>
     
   </div>

@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg py-3 fixed px-5">
+  <nav class="navbar shadow navbar-expand-lg py-3 fixed px-5">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
-      clipit
+      <i class="fa fa-scissors" aria-hidden="true">
+        clipit
+      </i>
     </router-link>
 
     <router-link :to="{ name: 'url-list' }" class="ml-auto">

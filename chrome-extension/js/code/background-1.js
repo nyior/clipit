@@ -59,9 +59,9 @@ const urlShortener = (data) => {
         .then(data => {
             originalUrl = encodeURI(data.longUrl)
             shortcode = encodeURI(data.shortcode)
-            baseUrl = "https://www.clipit.fun/"
+            frontendUrl = "https://www.clipit.fun/"
             newUrl = `www.clipit.fun/${shortcode}`
-            newurlHref = baseUrl.concat(shortcode);
+            newurlHref = frontendUrl.concat(shortcode);
             trimmedUrl = String(data.longUrl)
 
             if(trimmedUrl.length > 10){
@@ -132,7 +132,7 @@ const toggleForm = () => {
 document.addEventListener("DOMContentLoaded", () => {
     let button = document.querySelector("#klinurl-button");
     let toggleButtons = document.querySelectorAll("#toggle");
-    let statsLink = document.querySelectorAll("#stats-link");
+    let statsLink = document.querySelector("#stats-link");
 
     button.addEventListener("click", (e) => {
         getInputFieldCOntent()
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     statsLink.addEventListener("click", (e) => {
-        getInputFieldCOntent()
+        // getInputFieldCOntent()
 
     });
 

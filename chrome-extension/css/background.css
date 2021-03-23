@@ -23,8 +23,6 @@
     color:#293a48;
     letter-spacing: 1px;
     padding: 3rem;
-    /* background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
-    background: url("../icons/back.jpg"); */
 }
 
 #klinurl-button{
@@ -106,6 +104,7 @@ a:hover{
     font-weight: bold;
     font-size: 1.4rem;
 }
+
 @keyframes cssAnimation {
     to {
         width:0;
@@ -113,6 +112,7 @@ a:hover{
         overflow:hidden;
     }
 }
+
 @-webkit-keyframes cssAnimation {
     to {
         width:0;

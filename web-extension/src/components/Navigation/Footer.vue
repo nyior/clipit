@@ -27,16 +27,16 @@
 
 <script>
 export default {
-  name: "Footer"
-};
+  name: 'Footer'
+}
 </script>
 
 <style scoped>
 .my-footer {
-  font-weight: bolder;
+  font-weight: bold;
   letter-spacing: 1px;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 2rem;
   position: relative;
   bottom: 0px;
 }

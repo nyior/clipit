@@ -6,9 +6,9 @@
             Do you want to create custom URLs? we've got you!
 
             <span>
-              <i 
-                class="fa fa-arrow-right" 
-                aria-hidden="true" 
+              <i
+                class="fa fa-arrow-right"
+                aria-hidden="true"
                 @click="hideForm"
               >
                 custom
@@ -20,62 +20,57 @@
 
         <form class="mt-5" @submit.prevent="onSubmit">
             <input
-                class="form-control py-2 my-3 border-right-0 border"
+                class="form-control py-2 my-3 border-right-0 border long-url-input"
                 type="text"
                 placeholder="paste your long url here"
-                v-validate="'required|url'" 
                 required
                 name="url"
                 v-model="longUrl"
             />
 
-            <div class="my-3">
-                <span 
-                    class="text-danger"
-                >
-                    {{ errors.first('url') }}
-                </span>
-            </div>
-
-            <ClipButton :isLoading="isLoading"/>            
+            <ClipButton :isLoading="isLoading"/>
         </form>
     </div>
   </div>
 </template>
 
 <script>
-import ClipButton from "@/components/Utils/ClipButton.vue";
+import { loadCurrentTabUrl } from '@/utils/helpers.js'
+import ClipButton from '@/components/Utils/ClipButton.vue'
 
 export default {
-  name: "RegularForm",
-
+  name: 'RegularForm',
   components: {
     ClipButton
   },
 
   props: {
-      isLoading: {
-          type: Boolean,
-          required: true,
-      }
+    isLoading: {
+      type: Boolean,
+      required: true
+    }
   },
 
-  data() {
+  data () {
     return {
       longUrl: null
-    };
+    }
   },
 
   methods: {
-    hideForm() {
-      this.$emit("hide-form");
+    hideForm () {
+      this.$emit('hide-regular-form')
     },
 
-    onSubmit() {
-      this.$emit("on-submit", { longUrl: this.longUrl });
+    onSubmit () {
+      this.$emit('on-submit', { longUrl: this.longUrl })
     }
+  },
+
+  mounted: function () {
+    loadCurrentTabUrl() // unable to copy current tab's url
   }
-};
+}
 </script>
 
 <style scoped>

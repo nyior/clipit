@@ -10,10 +10,15 @@ body {
     overflow-x: hidden;
     height: 100%;
     color:#293a48;
+    font-weight: bold;
 }
 
 .hero-container{
-	margin-top: 8rem;
+	margin-top: 4rem;
+}
+
+i{
+    cursor: pointer;
 }
 
 thead{
@@ -29,7 +34,7 @@ thead{
 }
 
 .space-up{
-    margin-top: 8rem;
+    margin-top: 10rem;
 }
 
 p{
@@ -43,10 +48,6 @@ small{
 a{
     text-decoration: none !important;
     color: #e9492e;
-}
-
-i{
-    cursor: pointer;
 }
 
 .btn{
@@ -66,12 +67,12 @@ span{
 }
 
 h3{
-    font-size: 3.2rem;  
+    font-size: 1.8rem;  
     letter-spacing: 1px; 
 }
 
 h4{
-    font-size: 2.7rem;  
+    font-size: 1.6rem;  
     letter-spacing: 1px; 
 }
 
@@ -94,42 +95,4 @@ form {
 
 .text-danger{
     font-size: 1.2rem;
-}
-
-  
-@media only screen and (max-width: 600px) {	
-	.sub-heading{
-		font-size: 2.5rem;	
-		letter-spacing: 2px;
-    }
-
-    .space-up{
-        margin-top: 5rem;
-    }
-    
-    form {
-        width:  100%;
-        height: 3rem;
-        border-radius: 10px;
-    }
-    
-    .input-group-text{
-        border: none;
-        font-size: 1.4rem;
-        color:  #7a09c4;
-    }
-
-    .hero-container{
-        margin-top: 10rem;
-    }
-    
-    h3{
-        font-size: 2.5rem;  
-        letter-spacing: 1px; 
-    }
-
-    h4{
-        font-size: 2rem;  
-        letter-spacing: 1px; 
-    }
 }
