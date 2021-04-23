@@ -9,6 +9,7 @@
     </i>
 </p>
 
+![Uploading clipit-logo.png…]()
 
 ## what is clipit ?
 Simple! Have you worked with bitly or tinyurl before? clipit 
