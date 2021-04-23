@@ -9,10 +9,6 @@
     </i>
 </p>
 
-<div  align="center">
-   ![clipit-logo](https://user-images.githubusercontent.com/32811823/115904890-3e5b0b80-a45d-11eb-9118-b8606f087b55.png)
-</div?
-
 ## what is clipit ?
 Simple! Have you worked with bitly or tinyurl before? clipit 
 does pretty much the same thing *and more*. It is a web application
