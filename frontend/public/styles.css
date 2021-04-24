@@ -42,7 +42,11 @@ small{
 
 a{
     text-decoration: none !important;
-    color: #e9492e;
+    color: #ff0000;
+}
+
+.color-orange{
+  color: #ff0000;
 }
 
 i{
@@ -51,7 +55,7 @@ i{
 
 .btn{
 	letter-spacing: 1px;
-    background-color: #e9492e;
+    background-color: #ff0000;
 	color: white !important;
 	font-weight: bold;
 	font-size: 2rem;
@@ -61,7 +65,7 @@ i{
 }
 
 span{
-    color: #e9492e;
+    color: #ff0000;
     font-size: 2rem;
 }
 
@@ -103,9 +107,9 @@ form {
 		letter-spacing: 2px;
     }
 
-    .space-up{
+    /* .space-up{
         margin-top: 5rem;
-    }
+    } */
     
     form {
         width:  100%;

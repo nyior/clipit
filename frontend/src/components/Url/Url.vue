@@ -48,10 +48,10 @@
                         <small>
                             <a 
                                 id="clipped-url" 
-                                :href="scheme + host + encodeURI(url.shortcode)" 
+                                :href="scheme + host + encodeURI(this.url.shortcode)" 
                                 target="blank"
                             >
-                                {{ clippedUrl }}
+                                {{ host + url.shortcode }}
                             </a>
                         </small>
                     </td> 
@@ -63,7 +63,7 @@
                                 target="blank"
                                 :title="url.longUrl"
                             >
-                                {{ longUrl }}
+                                {{ url.longUrl.substring(0, 15).concat("...") }}
                             </a>
                         </small>
                     </td>      
@@ -102,11 +102,9 @@ export default {
 
   data() {
     return {
-      host: window.location.hostname + '/',
       scheme: 'https://',
       copied: false,
-      clippedUrl: null,
-      longUrl: null
+      host: 'www.clipit.fun' + '/'
     };
   },
 
@@ -115,26 +113,21 @@ export default {
         this.copied = false;
     },
 
-    setClippedAndLongUrls () {
-        this.clippedUrl = this.host + encodeURI(this.url.shortcode)
-        this.longUrl = this.url.longUrl.substring(0, 15).concat("...")
-    },
-
     copyToClipboard () {
       try {
-        navigator.clipboard.writeText(this.clippedUrl);
+        const clippedUrl = this.host + encodeURI(this.url.shortcode)
+        navigator.clipboard.writeText(clippedUrl)
         this.copied = true
 
-        setTimeout(this.setCopiedToFalse, 2000);   
+        setTimeout(this.setCopiedToFalse, 2000)
       } catch (err) {
-        this.copied = false;
+        this.copied = false
       }
     }
   },
 
   mounted: function() {
     document.title = "Shortster | Home";
-    this.setClippedAndLongUrls()
   }
 };
 </script>

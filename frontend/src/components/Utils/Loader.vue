@@ -27,7 +27,7 @@
   position: absolute;
   width: 0;
   height: 100%;
-  background-color: #e9492e;
+  background-color: #ff0000;
   animation: load 2s linear infinite;
 }
 
@@ -35,7 +35,7 @@
   position: absolute;
   width: 100%;
   top: 10px;
-  color: #e9492e;
+  color: #ff0000;
   font-size: 22px;
   text-align: center;
   animation: bounce 2s linear infinite;

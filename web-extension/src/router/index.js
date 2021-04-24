@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import UrlList from '@/views/UrlList.vue'
-import UrlStats from '@/views/UrlStats.vue'
-
-Vue.use(VueRouter)
+import UrlStats from '@/views/Url/UrlStats.vue'
+import UrlList from '@/views/Url/UrlList.vue'
 
 const routes = [
   {
@@ -14,19 +11,21 @@ const routes = [
   },
 
   {
-    path: '/urls-list',
-    name: 'urls',
-    component: UrlList
+    path: '/url-stats/:shortcode',
+    name: 'url-stats',
+    props: true,
+    component: UrlStats
   },
 
   {
-    path: '/url-stats',
-    name: 'url-stats',
-    component: UrlStats
+    path: '/url-list',
+    name: 'url-list',
+    component: UrlList
   }
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
 })
 

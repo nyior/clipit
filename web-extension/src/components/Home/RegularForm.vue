@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { loadCurrentTabUrl } from '@/utils/helpers.js'
+import { store } from '@/store.js'
 import ClipButton from '@/components/Utils/ClipButton.vue'
 
 export default {
@@ -48,12 +48,17 @@ export default {
     isLoading: {
       type: Boolean,
       required: true
+    },
+
+    tabUrl: {
+      type: String,
+      required: true
     }
   },
 
   data () {
     return {
-      longUrl: null
+      longUrl: store.state.tabUrl
     }
   },
 
@@ -65,10 +70,6 @@ export default {
     onSubmit () {
       this.$emit('on-submit', { longUrl: this.longUrl })
     }
-  },
-
-  mounted: function () {
-    loadCurrentTabUrl() // unable to copy current tab's url
   }
 }
 </script>

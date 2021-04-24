@@ -27,37 +27,40 @@
 <style scoped>
 
 .clip-button {
-    background-color:#e9492e;
-	color: white !important;
-	font-weight: bold;
-	font-size: 2rem;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color:#e9492e;
+  color: white !important;
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 button > .text {
-    will-change: transform, opacity;
-    transition: all 0.3s ease-in-out;
-    opacity: 1;
-    border: none;
+  will-change: transform, opacity;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  border: none;
 }
+
 button > .loading-icon {
-    position: absolute;
-    left: 0;
-    right: 0;
-    transition: all 0.3s ease-in-out;
-    will-change: transform, opacity;
-    opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  will-change: transform, opacity;
+  opacity: 0;
 }
+
 button.is-loading > .text {
-    transform: translateY(-100px);
-    opacity: 0;
-    border: none;
+  transform: translateY(-100px);
+  opacity: 0;
+  border: none;
 }
+
 button.is-loading > .loading-icon {
-    transform: translateY(-100%);
-    opacity: 1;
+  transform: translateY(-100%);
+  opacity: 1;
 }
 
 </style>

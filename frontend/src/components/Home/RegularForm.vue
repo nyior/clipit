@@ -1,5 +1,5 @@
 <template>
-  <div class="row text-left">
+  <div class="row">
     <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
         <div>
           <h3>

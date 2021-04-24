@@ -10,7 +10,7 @@
           </i>
         </router-link>
         <router-link
-                :to="{ name: 'urls-list' }"
+                :to="{ name: 'url-list' }"
                 class="ml-auto"
         >
             <h3>

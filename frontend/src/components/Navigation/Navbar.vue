@@ -29,7 +29,7 @@ export default {
 
 .navbar-brand {
   font-size: 3rem;
-  color: #e9492e;
+  color: #ff0000;
   font-family: "Paytone One", sans-serif;
 }
 

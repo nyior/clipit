@@ -28,6 +28,7 @@
 <script>
 import Form from '@/components/Home/Form.vue'
 import Url from '@/components/Utils/Url.vue'
+import { store } from '@/store.js'
 
 export default {
   name: 'home',
@@ -58,9 +59,17 @@ export default {
     }
   },
 
-  mounted: function () {
-    document.title = 'clipit | Home'
+  created: function () {
     this.loadResponseFromLocalStorage()
+
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    //   window.localStorage.setItem('tabUrl', tabs[0].url)
+      store.updateTabUrl(tabs[0].url)
+    })
+  },
+
+  mounted: function() {
+    document.title = "CLIPIT | Home";
   }
 }
 </script>

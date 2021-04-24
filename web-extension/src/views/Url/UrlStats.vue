@@ -2,17 +2,17 @@
   <div class="row px-5 text-left hero-container">
     <div
       v-if="isLoading"
-      class="col-12 col-md-6 ml-md-auto mr-md-auto text-center"
+      class="col-12 text-center"
     >
-      <Loader />
+      <p>...loading...</p>
     </div>
 
-    <div v-else class="col-12 col-md-6 ml-md-auto mr-md-auto p-4 shadow card">
+    <div v-else class="col-12 p-4 shadow card">
       <h4 class="mb-5 text-center">how users had been interacting with this URL</h4>
       <hr />
       <table class="table borderless table-sm">
         <thead>
-            <tr 
+            <tr
                 class="text-left"
             >
                 <th>created on</th>
@@ -24,30 +24,30 @@
         <tbody>
             <tr class="p-2">
                 <td>
-                        <small>
-                            {{ dateCreated }}
-                        </small>
-                </td> 
+                    <small>
+                        {{ dateCreated }}
+                    </small>
+                </td>
 
                 <td>
                     <small>
                         {{ lastAccessed }}
                     </small>
-                </td> 
+                </td>
 
                 <td>
                     <small>
                         {{ hits }}
                     </small>
-                </td>     
-            </tr>        
+                </td>
+            </tr>
         </tbody>
       </table>
 
       <hr />
       <p @click="back">
         <i class="fa fa-arrow-left" aria-hidden="true"> </i>
-        back 
+        back
       </p>
     </div>
   </div>
@@ -64,15 +64,10 @@
 </style>
 
 <script>
-import { apiService } from "@/utils/api.service.js";
-import Loader from "@/components/Utils/Loader.vue";
+import { apiService } from '@/utils/api.service.js'
 
 export default {
-  name: "url-stats",
-
-  components: {
-    Loader
-  },
+  name: 'url-stats',
 
   props: {
     shortcode: {
@@ -81,42 +76,42 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       isLoading: false,
       lastAccessed: null,
       dateCreated: null,
       hits: null
-    };
-  },
-
-  methods: {
-    getUrlStats() {
-      this.isLoading = true;
-      let url_stats_endpoint = `api/v1/${this.shortcode}/stats`;
-
-      let method = "GET";
-
-      apiService(url_stats_endpoint, method)
-        .then(data => {
-          this.isLoading = false;
-          this.lastAccessed = data.lastAccessed;
-          this.dateCreated = data.dateCreated;
-          this.hits = data.hits;
-        })
-        .catch(error => {
-          this.isLoading = false;
-        });
-    },
-
-    back() {
-      this.$router.back();
     }
   },
 
-  mounted: function() {
-    document.title = "CLIPIT | URL-stats";
-    this.getUrlStats();
+  methods: {
+    getUrlStats () {
+      this.isLoading = true
+      const urlStatsEndpoint = `api/v1/${this.shortcode}/stats`
+
+      const method = 'GET'
+      apiService(urlStatsEndpoint, method)
+        .then(data => {
+          this.lastAccessed = data.lastAccessed
+          this.dateCreated = data.dateCreated
+          this.hits = data.hits
+          this.isLoading = false
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    },
+
+    back () {
+      this.$router.back()
+    }
+  },
+
+  mounted: function () {
+    document.title = 'Shortster | stats'
+    this.getUrlStats()
   }
-};
+}
 </script>

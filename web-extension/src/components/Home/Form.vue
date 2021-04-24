@@ -10,6 +10,7 @@
                     @hide-regular-form="toggle"
                     @on-submit="shortenUrl"
                     :isLoading="isLoading"
+                    :tabUrl="tabUrl"
         />
 
       </div>
@@ -19,6 +20,7 @@
                     @show-regular-form="toggle"
                     @on-submit="shortenUrl"
                     :isLoading="isLoading"
+                    :tabUrl="tabUrl"
         />
       </div>
 
@@ -37,7 +39,8 @@ export default {
   data () {
     return {
       showRegularForm: true,
-      isLoading: false
+      isLoading: false,
+      tabUrl: null
     }
   },
 
@@ -62,7 +65,6 @@ export default {
           this.isLoading = false
           this.$emit('on-submit', data)
 
-          // save response data to browser storage
           window.localStorage.setItem('longUrl', data.longUrl)
           window.localStorage.setItem('shortcode', data.shortcode)
         })
@@ -71,6 +73,10 @@ export default {
           this.isLoading = false
         })
     }
+  },
+
+  beforeMount: function () {
+    this.tabUrl = encodeURI(window.localStorage.getItem('tabUrl'))
   }
 }
 </script>

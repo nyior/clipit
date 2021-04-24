@@ -27,7 +27,7 @@
 <style scoped>
 
 .clip-button {
-    background-color:#e9492e;
+    background-color:#ff0000;
 	color: white !important;
 	font-weight: bold;
 	font-size: 2rem;

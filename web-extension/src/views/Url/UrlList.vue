@@ -24,13 +24,13 @@
 
     <div
       v-if="isLoading"
-      class="col-12 col-md-6 mr-md-auto ml-md-auto space-up text-center"
+      class="col-12 space-up text-center"
     >
-      <Loader />
+      <p>...loading...</p>
     </div>
   </div>
 
-  <div v-if="urls.length > 0 && !isLoading">
+  <div class="col-12 mt-3 text-left" v-if="urls.length > 0 && !isLoading">
       <div
         v-for="url in urls"
         :key="url.shortcode"
@@ -47,46 +47,45 @@
 </style>
 
 <script>
-import { apiService } from "@/utils/api.service.js";
-import Url from "@/components/Url/Url.vue";
-import Loader from "@/components/Utils/Loader.vue";
+import { apiService } from '@/utils/api.service.js'
+import Url from '@/components/Utils/Url.vue'
 
 export default {
-  name: "url-list",
+  name: 'url-list',
 
   components: {
-    Url,
-    Loader
+    Url
   },
 
-  data() {
+  data () {
     return {
       isLoading: false,
       urls: []
-    };
-  },
-
-  methods: {
-    getUrlsList() {
-      this.isLoading = true;
-      let urls_endpoint = `api/v1/urls`;
-
-      let method = "GET";
-
-      apiService(urls_endpoint, method)
-        .then(data => {
-          this.isLoading = false;
-          this.urls = [...data.urls];
-        })
-        .catch(error => {
-          this.isLoading = false;
-        });
     }
   },
 
-  mounted: function() {
-    document.title = "CLIPIT | all-urls";
-    this.getUrlsList();
+  methods: {
+    getUrlsList () {
+      this.isLoading = true
+      const urlsEndpoint = 'api/v1/urls'
+
+      const method = 'GET'
+
+      apiService(urlsEndpoint, method)
+        .then(data => {
+          this.isLoading = false
+          this.urls = [...data.urls]
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    }
+  },
+
+  mounted: function () {
+    document.title = 'Shortster | all-urls'
+    this.getUrlsList()
   }
-};
+}
 </script>

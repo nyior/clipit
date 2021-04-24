@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { loadCurrentTabUrl } from '@/utils/helpers.js'
 import ClipButton from '@/components/Utils/ClipButton.vue'
+import { store } from '@/store.js'
 
 export default {
   name: 'RegularForm',
@@ -58,12 +58,17 @@ export default {
     isLoading: {
       type: Boolean,
       required: true
+    },
+
+    tabUrl: {
+      type: String,
+      required: true
     }
   },
 
   data () {
     return {
-      longUrl: null,
+      longUrl: store.state.tabUrl,
       shortcode: null
     }
   },
@@ -79,10 +84,6 @@ export default {
         shortcode: this.shortcode
       })
     }
-  },
-
-  mounted: function () {
-    loadCurrentTabUrl()
   }
 }
 </script>

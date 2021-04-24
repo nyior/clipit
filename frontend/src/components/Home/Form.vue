@@ -27,8 +27,10 @@
 
 <script>
 import { apiService } from "@/utils/api.service.js";
+import { validateUrl } from "@/utils/helper.js";
 import RegularForm from "./RegularForm.vue";
 import AdvancedForm from "./AdvancedForm.vue";
+import Error from "@/components/Utils/Error.vue"
 
 export default {
   name: "Form",
@@ -42,7 +44,8 @@ export default {
 
   components: {
     RegularForm,
-    AdvancedForm
+    AdvancedForm,
+    Error
   },
 
   methods: {
@@ -56,7 +59,10 @@ export default {
 
       let method = "POST";
 
-      apiService(shorten_url_endpoint, method, payload)
+      let isValidUrl = validateUrl(payload.longUrl);
+      
+      if (isValidUrl) {
+        apiService(shorten_url_endpoint, method, payload)
         .then(data => {
           this.isLoading = false;
           this.$emit("on-submit", data);
@@ -67,7 +73,10 @@ export default {
         })
         .catch(error => {
           this.isLoading = false;
-        });
+        }); 
+      }else{
+        this.isLoading = false;
+      } 
     }
   }
 };
