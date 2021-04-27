@@ -1,5 +1,3 @@
-<img align="center" src="./frontend/src/assets/clipit-logo.png">
-
 <h1 align="center">
 	Clipit: A web url shortener with an accompanying browser extension.
 </h1>
@@ -10,6 +8,11 @@
         interface or just install our browser extension
     </i>
 </p>
+
+<p align="center">
+  <img align="center" width="460" height="300" src="./frontend/src/assets/clipit-logo.png">
+</p>
+
 
 ## what is clipit ?
 Simple! Have you worked with bitly or tinyurl before? clipit 
