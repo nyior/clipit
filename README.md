@@ -9,7 +9,7 @@
     </i>
 </p>
 
-<img align="center" width="200" height="200" src="./frontend/src/assets/clipit-logo.png">
+<img align="center" src="./frontend/src/assets/clipit-logo.png">
 
 ## what is clipit ?
 Simple! Have you worked with bitly or tinyurl before? clipit 
