@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img align="center" width="460" height="300" src="./frontend/src/assets/clipit-logo.png">
+  <img src="./frontend/src/assets/clipit-logo.png">
 </p>
 
 
