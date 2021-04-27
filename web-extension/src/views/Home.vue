@@ -40,7 +40,10 @@ export default {
 
   data () {
     return {
-      response: null
+      response: { 
+        "longUrl": '',
+        "shortcode": '',
+      }
     }
   },
 

@@ -90,6 +90,7 @@ a{
 </style>
 
 <script>
+import { host, copiedToClipboard } from "@/utils/helper.js";
 export default {
   name: "url",
 
@@ -104,7 +105,7 @@ export default {
     return {
       scheme: 'https://',
       copied: false,
-      host: 'www.clipit.fun' + '/'
+      host: host
     };
   },
 

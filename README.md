@@ -10,6 +10,10 @@
 </p>
 
 
+<img align="center" width="200" height="200" src="./frontend/src/assets/clipit-logo.png">
+
+
+
 ## what is clipit ?
 Simple! Have you worked with bitly or tinyurl before? clipit 
 does pretty much the same thing *and more*. It is a web application

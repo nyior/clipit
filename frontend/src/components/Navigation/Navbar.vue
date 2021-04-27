@@ -8,7 +8,9 @@
 
     <router-link :to="{ name: 'url-list' }" class="ml-auto">
       <button class="btn shadow">
-        all urls
+       <i class="fa fa-list" aria-hidden="true"> 
+           all urls
+       </i>
       </button>
     </router-link>
   </nav>

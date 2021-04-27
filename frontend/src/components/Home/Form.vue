@@ -27,7 +27,7 @@
 
 <script>
 import { apiService } from "@/utils/api.service.js";
-import { validateUrl } from "@/utils/helper.js";
+import { validateUrl, copiedToClipboard } from "@/utils/helper.js";
 import RegularForm from "./RegularForm.vue";
 import AdvancedForm from "./AdvancedForm.vue";
 import Error from "@/components/Utils/Error.vue"
@@ -66,6 +66,10 @@ export default {
         .then(data => {
           this.isLoading = false;
           this.$emit("on-submit", data);
+
+          if (copiedToClipboard(data.shortcode)) {
+            this.$emit('show-copied-to-clipboard-toaster')
+          }
 
         //save response data to browser storage
           window.localStorage.setItem("longUrl", data.longUrl);

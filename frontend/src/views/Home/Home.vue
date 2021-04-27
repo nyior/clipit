@@ -1,12 +1,21 @@
 <template>
   <div class="container-fluid hero-container">
     
-    <Form @on-submit="setUrl" />
+    <Form 
+        @on-submit="setUrl" 
+        @show-copied-to-clipboard-toaster="showCopiedToClipboardToaster"
+    />
 
     <div 
         class="space-up" 
         v-if="response !== null"
     >
+      <div class="row text-center px-5" v-if="showToaster">
+          <div class="col-12 col-md-6 mr-md-auto ml-md-auto text-center">
+              <h5 class="toaster">shortened URL copied to clipboard</h5>
+          </div>
+      </div>
+
       <div class="row text-left text-muted px-5">
           <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
               <h4>The most recent URL you worked with</h4>
@@ -20,35 +29,14 @@
       </div>
     </div>
 
-    <div class="row text-center px-5 space-up">
-        <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
-            <h3
-                class="animate"
-            >
-               <span class="mr-2">30</span>active users and still couting ...
-            </h3>
-        </div>
-    </div>
-
     <div class="space-up">
-        <div class="row text-left px-md-0 px-4">
+        <div class="row text-left px-5">
             <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
-                <h4>How do our browser extensions work?</h4>
+                <h4>Want to install our browser extension?</h4>
             </div>
         </div>
 
-        <div class="row h-100 text-center mt-2 px-5">
-            <div class="col-12 card shadow col-md-6 mr-md-auto ml-md-auto text-left">
-                <iframe 
-                    src="https://www.youtube.com/embed/GzSVSA-EO74" 
-                    title="how clipit browser extensions work"
-                >
-
-                </iframe>
-            </div>
-        </div>
-
-        <div class="row h-100 text-center mt-4 px-md-0 px-4">
+        <div class="row text-center mt-2 px-5">
             <div class="col-12 col-md-6 mr-md-auto ml-md-auto text-left">
                 <a href="" class="btn mr-2 shadow">
                    <i class="fa fa-chrome" aria-hidden="true">
@@ -63,6 +51,28 @@
                 </a>
             </div>
         </div>
+
+        <div class="row text-left mt-4 px-5">
+            <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
+                <p>
+                    Our browser extension makes the URL shortening process 
+                    more convenient. How does it work?
+
+                </p>
+            </div>
+        </div>
+
+        <div class="row h-100 text-center mt-2 px-5">
+            <div class="col-12 col-md-6 mr-md-auto ml-md-auto text-left">
+                <iframe 
+                    src="https://www.youtube.com/embed/GzSVSA-EO74" 
+                    title="how clipit browser extensions work"
+                    class="card shadow"
+                >
+
+                </iframe>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -72,21 +82,14 @@ iframe{
     height: 350px;
     width: 100%;
     border: none;
-}
-.animate {
-  animation-name: animate-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  font-weight: bold;
+    padding: 1rem;
 }
 
-@keyframes animate-animation {
-  from {
-    font-size: 0.8rem;
-  }
-  to {
-    font-size: 1.4rem;
-  }
+.toaster{
+    background-color: #ff3855;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
 }
 @media only screen and (max-width: 600px) {
   iframe{
@@ -109,21 +112,35 @@ export default {
 
   data() {
     return {
-      response: null
+      response: { 
+        "longUrl": '',
+        "shortcode": '',
+      },
+
+      showToaster: false,
     };
   },
 
   methods: {
-    setUrl(payload) {
+    setUrl (payload) {
       this.response = payload;
     },
 
-    loadResponseFromLocalStorage(){
+    setShowToasterToFalse () {
+      this.showToaster = false
+    },
+
+    showCopiedToClipboardToaster () {
+      this.showToaster = true
+      setTimeout(this.setShowToasterToFalse, 3000)
+    },
+
+    loadResponseFromLocalStorage () {
         let response = {
             "longUrl": window.localStorage.getItem("longUrl"),
             "shortcode": window.localStorage.getItem("shortcode"),
         }
-
+        
         this.response = response;
     }
   },
