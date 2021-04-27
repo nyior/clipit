@@ -1,0 +1,88 @@
+<template>
+  <div class="row px-3">
+    <div class="col-12">
+
+      <div
+        v-if="showRegularForm"
+        id="regular-form"
+      >
+        <RegularForm
+                    @hide-regular-form="toggle"
+                    @on-submit="shortenUrl"
+                    :isLoading="isLoading"
+                    :tabUrl="tabUrl"
+        />
+
+      </div>
+
+      <div v-else id="advanced-form">
+        <AdvancedForm
+                    @show-regular-form="toggle"
+                    @on-submit="shortenUrl"
+                    :isLoading="isLoading"
+                    :tabUrl="tabUrl"
+        />
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+import { apiService } from '@/utils/api.service.js'
+import RegularForm from './RegularForm.vue'
+import AdvancedForm from './AdvancedForm.vue'
+
+export default {
+  name: 'Form',
+
+  data () {
+    return {
+      showRegularForm: true,
+      isLoading: false,
+      tabUrl: null
+    }
+  },
+
+  components: {
+    RegularForm,
+    AdvancedForm
+  },
+
+  methods: {
+    toggle () {
+      this.showRegularForm = !this.showRegularForm
+    },
+
+    shortenUrl (payload) {
+      this.isLoading = true
+      const shortenUrlEndpoint = 'api/v1/shortcode'
+
+      const method = 'POST'
+
+      apiService(shortenUrlEndpoint, method, payload)
+        .then(data => {
+          this.isLoading = false
+          this.$emit('on-submit', data)
+
+          window.localStorage.setItem('longUrl', data.longUrl)
+          window.localStorage.setItem('shortcode', data.shortcode)
+        })
+        .catch(error => {
+          console.log(error)
+          this.isLoading = false
+        })
+    }
+  },
+
+  beforeMount: function () {
+    this.tabUrl = encodeURI(window.localStorage.getItem('tabUrl'))
+  }
+}
+</script>
+
+<style scoped>
+p {
+  color: #007f37;
+}
+</style>

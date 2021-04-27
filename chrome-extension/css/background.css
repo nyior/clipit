@@ -7,8 +7,12 @@
     padding: 0px;
 }
 
+.advanced{
+    display: none;
+}
+
 #tooltiptext {  
-   color: #1ca9c9; 
+   color: #e9492e; 
 } 
 
 #klinurl-body{
@@ -16,17 +20,16 @@
     min-width:50rem;
     font-size: 1.6rem;
     font-family: 'Quicksand', sans-serif;
+    color:#293a48;
     letter-spacing: 1px;
     padding: 3rem;
-    background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
-    background: url("../icons/back.jpg");
 }
 
 #klinurl-button{
 	width: 15rem;
 	height: 4rem;
 	letter-spacing: 1px;
-    background-color: #1ca9c9;
+    background-color: #e9492e;
     color: white !important;
 	font-weight: bold;
 	font-size: 1.6rem;
@@ -35,17 +38,17 @@
 
 #klinurl-copy{
 	font-size: 1.6rem;	
-    color: #1ca9c9;
+    color: #e9492e;
     visibility: hidden;
 }
 
 #klinurl-back{
 	font-size: 1.6rem;	
-    color: #1ca9c9;
+    color: #e9492e;
 }
 
 #klinurl-save{
-    color: #1ca9c9;
+    color: #e9492e;
 }
 
 #longurl{
@@ -53,11 +56,17 @@
     border: 0.1rem solid #1ca9c9;
 }
 
+#shortcode{
+    width: 100%;
+    border: 0.1rem solid #1ca9c9;
+    margin-top: 1rem;
+}
+
 #klinurl-h1{
 	font-size: 2.5rem;	
     letter-spacing: 2px;
     font-weight: bold;
-    color: #1ca9c9;
+    color: #e9492e;
     font-family: 'Paytone One', sans-serif;
 }
 
@@ -66,12 +75,11 @@
 	font-size: 1.8rem;	
     letter-spacing: 2px;
     font-weight: bold;
-    color: #ce8b57;
 }
 
 .klinurl-table-header{
     letter-spacing: 1px;
-    background-color: #1ca9c9;
+    background-color: #e9492e;
     color: white !important;
 	font-weight: bold;
 	font-size: 1.6rem;
@@ -96,6 +104,7 @@ a:hover{
     font-weight: bold;
     font-size: 1.4rem;
 }
+
 @keyframes cssAnimation {
     to {
         width:0;
@@ -103,6 +112,7 @@ a:hover{
         overflow:hidden;
     }
 }
+
 @-webkit-keyframes cssAnimation {
     to {
         width:0;

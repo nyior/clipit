@@ -1,10 +1,10 @@
 <template>
-  <div class="row text-left">
+  <div class="row">
     <div class="col-12 col-md-6 ml-md-auto mr-md-auto">
       <div>
         <div>
           <h3>
-            you don't want to create custom urls? we've got you!
+            you don't want to create custom URLs? we've got you!
             <span>
               <i 
                 class="fa fa-arrow-left" 
@@ -17,9 +17,9 @@
           </h3>
         </div>
 
-        <form class="mt-5" @submit.prevent="onSubmit">
+        <form class="mt-5 mb-5" @submit.prevent="onSubmit">
           <input
-            class="form-control py-2 my-2"
+            class="form-control py-2 my-3"
             type="text"
             placeholder="paste your long url here"
             v-validate="'required|url'" 
@@ -31,7 +31,7 @@
           <span class="text-danger">{{ errors.first('url') }}</span>
 
           <input
-            class="form-control py-2 my-2"
+            class="form-control py-2 my-3"
             type="text"
             placeholder="custom url(between 4 - 30 characters)"
             v-validate="'required|min:4|max:30'"

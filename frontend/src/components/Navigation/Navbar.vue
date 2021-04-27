@@ -1,12 +1,16 @@
 <template>
-  <nav class="navbar navbar-expand-lg py-3 fixed px-5 shadow-sm">
+  <nav class="navbar shadow navbar-expand-lg py-3 fixed px-5">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
-      clipit
+      <i class="fa fa-scissors" aria-hidden="true">
+        clipit
+      </i>
     </router-link>
 
     <router-link :to="{ name: 'url-list' }" class="ml-auto">
       <button class="btn shadow">
-        all urls
+       <i class="fa fa-list" aria-hidden="true"> 
+           all urls
+       </i>
       </button>
     </router-link>
   </nav>
@@ -27,7 +31,7 @@ export default {
 
 .navbar-brand {
   font-size: 3rem;
-  color: #01af5e;
+  color: #ff0000;
   font-family: "Paytone One", sans-serif;
 }
 
