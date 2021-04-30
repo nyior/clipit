@@ -1,12 +1,24 @@
 <template>
   <div class="container-fluid hero-container">
 
-    <Form @on-submit="setUrl" />
+    <Form 
+        @on-submit="setUrl" 
+        @show-copied-to-clipboard-toaster="showCopiedToClipboardToaster"
+        @invalid-url="showInvalidUrlToaster"
+    />
 
     <div
         v-if="response !== null"
         class="row space-up text-left text-muted px-3"
     >
+        <div class="col-12 text-center" v-if="showToaster">
+              <h5 class="toaster">shortened URL copied to clipboard</h5>
+        </div>
+        
+         <div class="col-12 text-center" v-if="isInvalidUrl">
+              <h5 class="toaster">oops!!! this URL is invalid!</h5>
+        </div>
+
         <div class="col-12">
             <div class="row text-left">
                 <div class="col-12">
@@ -21,14 +33,17 @@
 </template>
 
 <style scoped>
-@media only screen and (max-width: 600px) {
+.toaster{
+    background-color: #ff3855;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
 }
 </style>
 
 <script>
 import Form from '@/components/Home/Form.vue'
 import Url from '@/components/Utils/Url.vue'
-import { store } from '@/store.js'
 
 export default {
   name: 'home',
@@ -40,10 +55,13 @@ export default {
 
   data () {
     return {
-      response: { 
-        "longUrl": '',
-        "shortcode": '',
-      }
+      response: {
+        longUrl: '',
+        shortcode: ''
+      },
+
+      showToaster: false,
+      isInvalidUrl: false
     }
   },
 
@@ -52,27 +70,38 @@ export default {
       this.response = payload
     },
 
+    setShowToasterToFalse () {
+      this.showToaster = false
+    },
+
+    setIsInvalidUrlToFalse () {
+      this.isInvalidUrl = false
+    },
+
+    showCopiedToClipboardToaster () {
+      this.showToaster = true
+      setTimeout(this.setShowToasterToFalse, 5000)
+    },
+
+    showInvalidUrlToaster () {
+      this.isInvalidUrl = true
+      setTimeout(this.setIsInvalidUrlToFalse, 3000)
+    },
+
     loadResponseFromLocalStorage () {
       const response = {
         longUrl: window.localStorage.getItem('longUrl'),
         shortcode: window.localStorage.getItem('shortcode')
       }
 
-      this.response = response
+      if (response.shortcode !== null) {
+        this.response = response;
+      }
     }
   },
 
-  created: function () {
+  mounted: function () {
     this.loadResponseFromLocalStorage()
-
-    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    //   window.localStorage.setItem('tabUrl', tabs[0].url)
-      store.updateTabUrl(tabs[0].url)
-    })
-  },
-
-  mounted: function() {
-    document.title = "CLIPIT | Home";
   }
 }
 </script>

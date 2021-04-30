@@ -38,13 +38,13 @@
 
         <div class="row text-center mt-2 px-5">
             <div class="col-12 col-md-6 mr-md-auto ml-md-auto text-left">
-                <a href="" class="btn mr-2 shadow">
+                <a href="" class="btn mr-2 shadow chrome">
                    <i class="fa fa-chrome" aria-hidden="true">
                        chrome
                    </i>
                 </a>
 
-                <a href="" class="btn shadow">
+                <a href="" class="btn shadow firefox">
                    <i class="fa fa-firefox" aria-hidden="true">
                        firefox
                    </i>
@@ -83,6 +83,14 @@ iframe{
     width: 100%;
     border: none;
     padding: 1rem;
+}
+
+.chrome{
+  background-color: #0099FF;
+}
+
+.firefox{
+ background-color: #202340;
 }
 
 .toaster{
@@ -132,7 +140,7 @@ export default {
 
     showCopiedToClipboardToaster () {
       this.showToaster = true
-      setTimeout(this.setShowToasterToFalse, 3000)
+      setTimeout(this.setShowToasterToFalse, 5000)
     },
 
     loadResponseFromLocalStorage () {
@@ -141,7 +149,9 @@ export default {
             "shortcode": window.localStorage.getItem("shortcode"),
         }
         
-        this.response = response;
+        if (response.shortcode !== null) {
+            this.response = response;
+        }
     }
   },
 

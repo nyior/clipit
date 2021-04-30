@@ -10,7 +10,6 @@
                     @hide-regular-form="toggle"
                     @on-submit="shortenUrl"
                     :isLoading="isLoading"
-                    :tabUrl="tabUrl"
         />
 
       </div>
@@ -20,7 +19,6 @@
                     @show-regular-form="toggle"
                     @on-submit="shortenUrl"
                     :isLoading="isLoading"
-                    :tabUrl="tabUrl"
         />
       </div>
 
@@ -30,6 +28,8 @@
 
 <script>
 import { apiService } from '@/utils/api.service.js'
+import { validateUrl, copiedToClipboard } from "@/utils/helpers.js";
+
 import RegularForm from './RegularForm.vue'
 import AdvancedForm from './AdvancedForm.vue'
 
@@ -39,8 +39,7 @@ export default {
   data () {
     return {
       showRegularForm: true,
-      isLoading: false,
-      tabUrl: null
+      isLoading: false
     }
   },
 
@@ -60,23 +59,30 @@ export default {
 
       const method = 'POST'
 
-      apiService(shortenUrlEndpoint, method, payload)
+      let isValidUrl = validateUrl(payload.longUrl);
+      
+      if (isValidUrl) {
+        apiService(shortenUrlEndpoint, method, payload)
         .then(data => {
-          this.isLoading = false
-          this.$emit('on-submit', data)
+          this.isLoading = false;
+          this.$emit("on-submit", data);
 
-          window.localStorage.setItem('longUrl', data.longUrl)
-          window.localStorage.setItem('shortcode', data.shortcode)
+          if (copiedToClipboard(data.shortcode)) {
+            this.$emit('show-copied-to-clipboard-toaster')
+          }
+
+        //save response data to browser storage
+          window.localStorage.setItem("longUrl", data.longUrl);
+          window.localStorage.setItem("shortcode", data.shortcode);
         })
         .catch(error => {
-          console.log(error)
-          this.isLoading = false
-        })
+          this.isLoading = false;
+        }); 
+      }else{
+        this.isLoading = false;
+        this.$emit('invalid-url')
+      } 
     }
-  },
-
-  beforeMount: function () {
-    this.tabUrl = encodeURI(window.localStorage.getItem('tabUrl'))
   }
 }
 </script>

@@ -48,7 +48,7 @@
                     <td>
                         <small>
                             <a
-                                :href="scheme + host + encodeURI(this.url.shortcode)"
+                                :href="scheme + host + encodeURI(url.shortcode)"
                                 target="blank"
                             >
                                 {{ host + url.shortcode  }}
@@ -58,7 +58,11 @@
 
                     <td>
                         <small>
-                            <a :href="encodeURI(url.longUrl)" target="blank">
+                            <a 
+                                :href="encodeURI(url.longUrl)"
+                                target="blank"
+                                :title="url.longUrl"
+                            >
                                  {{ url.longUrl.substring(0, 15).concat('...') }}
                             </a>
                         </small>
@@ -82,6 +86,8 @@
 </style>
 
 <script>
+import { host, copiedToClipboard } from "@/utils/helpers.js";
+
 export default {
   name: 'url',
 
@@ -92,27 +98,24 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       scheme: 'https://',
       copied: false,
-      host: 'www.clipit.fun' + '/'
+      host: host
     }
   },
 
   methods: {
     setCopiedToFalse () {
-      this.copied = false
+        this.copied = false;
     },
 
     copyToClipboard () {
-      try {
-        const clippedUrl = this.host + encodeURI(this.url.shortcode)
-        navigator.clipboard.writeText(clippedUrl)
+      if (copiedToClipboard(this.url.shortcode)) {
         this.copied = true
-
         setTimeout(this.setCopiedToFalse, 2000)
-      } catch (err) {
+      } else {
         this.copied = false
       }
     }

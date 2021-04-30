@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import { store } from '@/store.js'
 import ClipButton from '@/components/Utils/ClipButton.vue'
 
 export default {
@@ -48,17 +47,12 @@ export default {
     isLoading: {
       type: Boolean,
       required: true
-    },
-
-    tabUrl: {
-      type: String,
-      required: true
     }
   },
 
   data () {
     return {
-      longUrl: store.state.tabUrl
+      longUrl: null
     }
   },
 
@@ -70,10 +64,18 @@ export default {
     onSubmit () {
       this.$emit('on-submit', { longUrl: this.longUrl })
     }
+  },
+
+  beforeMount: function () {
+      setTimeout(() => {
+          this.longUrl = window.localStorage.getItem('tabUrl')
+      }, 1);
   }
 }
 </script>
 
 <style scoped>
-
+small{
+    font-weight: bold;
+}
 </style>
