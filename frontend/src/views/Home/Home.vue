@@ -65,7 +65,7 @@
         <div class="row h-100 text-center mt-2 px-5">
             <div class="col-12 col-md-6 mr-md-auto ml-md-auto text-left">
                 <iframe 
-                    src="https://www.youtube.com/embed/GzSVSA-EO74" 
+                    src="https://www.youtube.com/embed/n1TEdz0t5es" 
                     title="how clipit browser extensions work"
                     class="card shadow"
                 >
