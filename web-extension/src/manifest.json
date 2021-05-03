@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Clipit for chrome",
+  "name": "Clipit",
   "description": "browser extension for shortening URLs",
+  "version": "2.0",
   "default_locale": "en",
   "permissions": [
     "activeTab",
-    "storage",
     "https://shter.herokuapp.com/"
   ],
 
@@ -25,7 +25,7 @@
 
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "clipit for chrome",
+    "default_title": "clipit",
     "default_icon": {
         "16": "icons/clipit-16.png",
         "32": "icons/clipit-32.png",
