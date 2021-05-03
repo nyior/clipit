@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar shadow navbar-expand-lg py-3 fixed px-5">
+  <nav class="navbar shadow-sm navbar-expand-lg py-3 fixed px-5">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
       <i class="fa fa-scissors" aria-hidden="true">
         clipit

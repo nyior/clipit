@@ -15,12 +15,12 @@
 
 
 ## what is clipit ?
-Simple! Have you worked with bitly or tinyurl before? clipit 
+Simple! Have you worked with Bitly or Tinyurl before? Clipit 
 does pretty much the same thing *and more*. It is a web application
 with an accompanying browser extension that allows
 you create shorter versions of those overly long smelly urls :) 
-you want to share with other people. You know what? clipit 
-is completely free :sparkles:
+you want to share with other people. You know what? Clipit 
+also comes with a [free API](http://shter.herokuapp.com/) that you could easily integrate into your projects :sparkles:
 
 ## Lol Nyior what's the browser extension for? aren't you over engineering?
 No not really! the browser extension would allow 
@@ -111,7 +111,7 @@ npm run test
 npm run lint
 ```
 
-## Chrome Extension Setup(chrome-extension folder): 
+## Chrome Extension Setup(web-extension folder): 
 
 - To test if it works, visit ```chrome://extensions``` in your browser and ensure that the Developer mode checkbox in the top right-hand corner is checked.
 
@@ -122,13 +122,10 @@ npm run lint
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Website
-you could shorten your urls with shortster [here](https://shter.netlify.app/)
+you could shorten your urls with clipit [here](https://clipit.fun)
 
 
-find the documentation for the API backend [here](https://shter.herokuapp.com)
-**Note** that even though the ``` /<shortcode> ``` endpoint for handling the redirect
-isn't on the documentation page, it works perfectly.
-
+find the documentation for our free API [here](https://shter.herokuapp.com)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

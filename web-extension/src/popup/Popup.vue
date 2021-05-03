@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <router-view/>
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -15,31 +15,18 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+
+  beforeCreate: function () {
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+        // store.updateTabUrl(tabs[0].url)
+        window.localStorage.setItem('tabUrl', tabs[0].url)
+    })
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 
 html {
   width: 450px;

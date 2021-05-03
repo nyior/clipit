@@ -37,17 +37,7 @@ export default {
 
 .navbar-brand {
   font-size: 2rem;
-  color: #e9492e;
+  color: #ff0000;
   font-family: "Paytone One", sans-serif;
-}
-
-.btn{
-  letter-spacing: 1px;
-  background-color: #e9492e;
-  color: white !important;
-  font-size: 1.4rem;
-  text-align: center;
-  width: 8rem;
-  height: 4rem;
 }
 </style>

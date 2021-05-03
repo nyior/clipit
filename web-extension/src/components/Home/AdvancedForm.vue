@@ -45,7 +45,6 @@
 
 <script>
 import ClipButton from '@/components/Utils/ClipButton.vue'
-import { store } from '@/store.js'
 
 export default {
   name: 'RegularForm',
@@ -58,17 +57,12 @@ export default {
     isLoading: {
       type: Boolean,
       required: true
-    },
-
-    tabUrl: {
-      type: String,
-      required: true
     }
   },
 
   data () {
     return {
-      longUrl: store.state.tabUrl,
+      longUrl: null,
       shortcode: null
     }
   },
@@ -84,10 +78,16 @@ export default {
         shortcode: this.shortcode
       })
     }
+  },
+
+  beforeMount: function () {
+    this.longUrl = window.localStorage.getItem('tabUrl')
   }
 }
 </script>
 
 <style scoped>
-
+small{
+    font-weight: bold;
+}
 </style>
