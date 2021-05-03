@@ -1,6 +1,21 @@
 <template>
   <div class="container-fluid hero-container">
-    
+    <div class="row text-left mt-4 px-5">
+        <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
+            <p>
+                Want to leverage our free API in your project? Find our
+                <span>
+                  <a 
+                    href="http://shter.herokuapp.com/"
+                    target="blank"
+                  >
+                    API doc here.
+                  </a>
+                </span>
+            </p>
+        </div>
+    </div>
+
     <Form 
         @on-submit="setUrl" 
         @show-copied-to-clipboard-toaster="showCopiedToClipboardToaster"
