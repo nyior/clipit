@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar shadow-sm navbar-expand-lg py-3 fixed px-5">
+  <nav class="navbar navbar-expand-lg py-3 fixed px-5">
     <router-link :to="{ name: 'home' }" class="dynamic-brand navbar-brand">
       <i class="fa fa-scissors" aria-hidden="true">
         clipit
@@ -34,7 +34,6 @@ export default {
   color: #ff0000;
   font-family: "Paytone One", sans-serif;
 }
-
 @media screen and (max-width: 600px) {
 }
 </style>

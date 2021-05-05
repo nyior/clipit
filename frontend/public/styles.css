@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     height: 100%;
     color:#202340;
+    background-color: #fcefef;
 }
 
 .hero-container{
@@ -70,8 +71,9 @@ span{
 }
 
 h3{
-    font-size: 3.2rem;  
+    font-size: 3.5rem;  
     letter-spacing: 1px; 
+    font-weight: bold;
 }
 
 h4{
@@ -128,7 +130,7 @@ form {
     }
     
     h3{
-        font-size: 2.5rem;  
+        font-size: 2.7rem;  
         letter-spacing: 1px; 
     }
 

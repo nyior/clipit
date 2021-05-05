@@ -3,6 +3,8 @@
     <div class="row text-left mt-4 px-5">
         <div class="col-12 col-md-6 mr-md-auto ml-md-auto">
             <p>
+                A free web URL shortener with a
+                browser extension.
                 Want to leverage our free API in your project? Find our
                 <span>
                   <a 
@@ -193,7 +195,7 @@ export default {
   },
 
   mounted: function() {
-    document.title = "clipit | Home";
+    document.title = "ClipIt.fun -  A completely free web URLshortener service that comes along with extensions for Chrome, Firefox, and Edge. No signup/login required";
     this.loadResponseFromLocalStorage();
   }
 };
