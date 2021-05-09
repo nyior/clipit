@@ -74,7 +74,7 @@
                 </a>
 
                 <a 
-                    href="" 
+                    href="https://microsoftedge.microsoft.com/addons/detail/clipit/hiomcmjcakkkkkknkcmkagdcnhpfjhbl" 
                     class="btn mr-2 shadow edge"
                     target="blank"
                     disabled

@@ -14,12 +14,10 @@
         no URLS found!
       </p>
 
-      <router-link :to="{ name: 'home' }">
-        <button class="btn">
-          <i class="fa fa-arrow-left" aria-hidden="true"> </i>
-          go to
-        </button>
-      </router-link>
+      <button class="btn" @click="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"> </i>
+        back
+      </button>
     </div>
 
     <div
@@ -81,6 +79,10 @@ export default {
         .catch(error => {
           this.isLoading = false;
         });
+    },
+
+    back() {
+      this.$router.back();
     }
   },
 

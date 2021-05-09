@@ -9,7 +9,7 @@
     <router-link :to="{ name: 'url-list' }" class="ml-auto">
       <button class="btn shadow">
        <i class="fa fa-list" aria-hidden="true"> 
-           all urls
+           my urls
        </i>
       </button>
     </router-link>
