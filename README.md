@@ -22,6 +22,8 @@ you create shorter versions of those overly long smelly urls :)
 you want to share with other people. You know what? Clipit 
 also comes with a [free API](http://shter.herokuapp.com/) that you could easily integrate into your projects :sparkles:
 
+[Chrome Extension](https://chrome.google.com/webstore/detail/clipit/jbeoijelmjlhahfdlccjlemcnfegiolc) || [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/clipit/hiomcmjcakkkkkknkcmkagdcnhpfjhbl)
+
 ## Lol Nyior what's the browser extension for? aren't you over engineering?
 No not really! the browser extension would allow 
 you shorten urls easily without having to visit our web platform 
