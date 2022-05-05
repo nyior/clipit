@@ -24,6 +24,9 @@ also comes with a [free API](http://shter.herokuapp.com/) that you could easily 
 
 [Chrome Extension](https://chrome.google.com/webstore/detail/clipit/jbeoijelmjlhahfdlccjlemcnfegiolc) || [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/clipit/hiomcmjcakkkkkknkcmkagdcnhpfjhbl)
 
+See a quick demo of how the browser extension works [HERE](https://www.youtube.com/watch?v=n1TEdz0t5es)
+
+
 ## Lol Nyior what's the browser extension for? aren't you over engineering?
 No not really! the browser extension would allow 
 you shorten urls easily without having to visit our web platform 
